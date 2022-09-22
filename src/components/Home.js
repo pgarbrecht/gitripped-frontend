@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 class Home extends Component {
 
-
     render() {
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
