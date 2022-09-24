@@ -16,17 +16,17 @@ class Home extends Component {
             jsonFormat: 'format=json',
             limitQuery: '&limit=',
             // display default number of exercises
-            limit: 5,
+            limit: 10,
             languageQuery: '&language=2',
             searchURL: '',
             // genericApiUrl: 'https://wger.de/api/v2/exercise/?format=json&limit=5&language=2'
+            exercises: []
         }
-        this.genericApiUrl = "https://wger.de/api/v2/exercise/?format=json&limit=5&language=2"
+        this.genericApiUrl = "https://wger.de/api/v2/exercise/?format=json&limit=10&language=2"
     }
 
     componentDidMount() {
         this.getGenericApiUrl();
-        console.log("in mount:", this.state.exercises)
     };
 
     getGenericApiUrl = () => (
@@ -36,49 +36,27 @@ class Home extends Component {
             const exercisesToAdd = []
             json.results.map((exercise) => {
                 exercisesToAdd.push(exercise)
-                console.log("line 39:", exercisesToAdd)
             }) 
-
             this.setState({
                 exercises: exercisesToAdd
             })
-            console.log("in getaPI:", json.results[0].name)
         }  //add new key to state and store array of exercises
         ), (err) => console.log(err)
     )
 
 
     render() {
-        console.log("line 50:", this.state.exercises)
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
                 <div className='grid w-3/4 h-[500px] bg-white'>
-                    <a href={
-                        this.state.baseURL + 
-                        // this.state.apiKey + 
-                        this.state.category[0] + 
-                        this.state.jsonFormat + 
-                        this.state.limitQuery + 
-                        this.state.limit +
-                        this.state.languageQuery 
-                    }>SearchURL:{
-                        this.state.baseURL + 
-                        // this.state.apiKey + 
-                        this.state.category[0] + 
-                        this.state.jsonFormat + 
-                        this.state.limitQuery + 
-                        this.state.limit +
-                        this.state.languageQuery 
-                    } </a>
-                    {/* <p>{this.state.exercises[0].name}</p> */}
-                    {/* {this.state.exercises.map((exercise, index) => {
+                    {this.state.exercises.map((exercise, index) => {
                         return (
                             <p
                             key={index}
-                            >exercise</p>
+                            >{exercise.name}</p>
                         )
-                    })} */}
+                    })}
                 </div>
             </div>
         )
