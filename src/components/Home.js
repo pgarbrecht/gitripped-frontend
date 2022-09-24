@@ -3,34 +3,23 @@ import React, { Component } from 'react'
 class Home extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
-            baseURL: 'https://wger.de/api/v2/',
-            // apiKey: `api_key=${process.env.REACT_APP_API_KEY}/?`,
-            // need /exercise, /exerciseimage, /muscle
-            category: [
-                'exercise/?',
-                'exerciseimage/?',
-                'muscle/?'
-            ],
-            jsonFormat: 'format=json',
-            limitQuery: '&limit=',
-            // display default number of exercises
-            limit: 10,
-            languageQuery: '&language=2',
-            searchURL: '',
-            // genericApiUrl: 'https://wger.de/api/v2/exercise/?format=json&limit=5&language=2'
+            baseUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=',
+            limit: "5",
+            searchUrl: "",
             exercises: []
         }
-        this.genericApiUrl = "https://wger.de/api/v2/exercise/?format=json&limit=10&language=2"
     }
 
     componentDidMount() {
         this.getGenericApiUrl();
     };
 
-    getGenericApiUrl = () => (
-        fetch(this.genericApiUrl)
+    getGenericApiUrl = () => {
+        this.setState({
+            searchUrl: this.state.baseUrl + this.state.limit
+        }, () => {
+        fetch(this.state.searchUrl)
         .then(response => { return response.json() })
         .then(json => {
             const exercisesToAdd = []
@@ -42,10 +31,12 @@ class Home extends Component {
             })
         }  //add new key to state and store array of exercises
         ), (err) => console.log(err)
-    )
+        })
+    }
 
 
     render() {
+        console.log(this.state.searchUrl)
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
