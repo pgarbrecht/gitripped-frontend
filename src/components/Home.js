@@ -18,9 +18,23 @@ class Home extends Component {
             // display default number of exercises
             limit: 5,
             languageQuery: '&language=2',
-            searchURL: ''
+            searchURL: '',
+            genericApiUrl: 'https://wger.de/api/v2/exercise/?format=json&limit=5&language=2'
         }
     }
+
+    componentDidMount() {
+        this.getGenericApiUrl();
+    };
+
+    getGenericApiUrl = () => (
+        fetch(this.state.genericApiUrl)
+        .then(response => { return response.json() })
+        .then(json => this.setState({
+            exercises: json.results, //add new key to state and store array of exercises
+        }), (err) => console.log(err))
+    )
+
     render() {
         console.log(this.state)
         return (
@@ -44,6 +58,7 @@ class Home extends Component {
                         this.state.limit +
                         this.state.languageQuery 
                     } </a>
+                    <p>{this.state.genericApiUrl.results}</p>
                 </div>
             </div>
         )
