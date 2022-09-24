@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Tile from './Tile';
 
 class Home extends Component {
     constructor(props) {
@@ -7,15 +8,18 @@ class Home extends Component {
             baseUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=',
             limit: "5",
             searchUrl: "",
-            exercises: []
+            exercises: [],
+            categoriesUrl: "https://wger.de/api/v2/exercisecategory/?format=json",
+            categories: []
         }
     }
 
     componentDidMount() {
-        this.getGenericApiUrl();
+        this.getSearchUrl();
+        this.getMuscleCategories();
     };
 
-    getGenericApiUrl = () => {
+    getSearchUrl = () => {
         this.setState({
             searchUrl: this.state.baseUrl + this.state.limit
         }, () => {
@@ -34,18 +38,35 @@ class Home extends Component {
         })
     }
 
+    getMuscleCategories = () => {
+        fetch(this.state.categoriesUrl)
+        .then(response => { return response.json() })
+        .then(json => {
+            const categoriesToAdd = []
+            json.results.map((category) => {
+                categoriesToAdd.push(category)
+            }) 
+            this.setState({
+                categories: categoriesToAdd
+            })
+        }  //add new key to state and store array of categories
+        ), (err) => console.log(err)
+    }
 
     render() {
-        console.log(this.state.searchUrl)
+        console.log(this.state)
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
                 <div className='grid w-3/4 h-[500px] bg-white'>
                     {this.state.exercises.map((exercise, index) => {
                         return (
-                            <p
+                            <Tile
                             key={index}
-                            >{exercise.name}</p>
+                            exerciseName = {exercise.name}
+                            category = {exercise.category.toString()}
+                            categoryArray = {this.state.categories}
+                            />
                         )
                     })}
                 </div>
