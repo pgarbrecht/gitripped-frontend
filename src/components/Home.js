@@ -6,14 +6,14 @@ class Home extends Component {
 
         this.state = {
             baseURL: 'https://wger.de/api/v2/',
-            apiKey: `api_key=${process.env.REACT_APP_API_KEY}`,
+            // apiKey: `api_key=${process.env.REACT_APP_API_KEY}/?`,
             // need /exercise, /exerciseimage, /muscle
             category: [
-                'exercise/',
-                'exerciseimage/',
-                'muscle/'
+                'exercise/?',
+                'exerciseimage/?',
+                'muscle/?'
             ],
-            jsonFormat: '?format=json/',
+            jsonFormat: 'format=json',
             limitQuery: '&limit=',
             // display default number of exercises
             limit: 5,
@@ -27,7 +27,23 @@ class Home extends Component {
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
                 <div className='grid w-3/4 h-[500px] bg-white'>
-                    {/* place tile components here */}
+                    <a href={
+                        this.state.baseURL + 
+                        // this.state.apiKey + 
+                        this.state.category[0] + 
+                        this.state.jsonFormat + 
+                        this.state.limitQuery + 
+                        this.state.limit +
+                        this.state.languageQuery 
+                    }>SearchURL:{
+                        this.state.baseURL + 
+                        // this.state.apiKey + 
+                        this.state.category[0] + 
+                        this.state.jsonFormat + 
+                        this.state.limitQuery + 
+                        this.state.limit +
+                        this.state.languageQuery 
+                    } </a>
                 </div>
             </div>
         )
