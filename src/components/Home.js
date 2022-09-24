@@ -19,24 +19,35 @@ class Home extends Component {
             limit: 5,
             languageQuery: '&language=2',
             searchURL: '',
-            genericApiUrl: 'https://wger.de/api/v2/exercise/?format=json&limit=5&language=2'
+            // genericApiUrl: 'https://wger.de/api/v2/exercise/?format=json&limit=5&language=2'
         }
+        this.genericApiUrl = "https://wger.de/api/v2/exercise/?format=json&limit=5&language=2"
     }
 
     componentDidMount() {
         this.getGenericApiUrl();
+        console.log("in mount:", this.state.exercises)
     };
 
     getGenericApiUrl = () => (
-        fetch(this.state.genericApiUrl)
+        fetch(this.genericApiUrl)
         .then(response => { return response.json() })
-        .then(json => this.setState({
-            exercises: json.results, //add new key to state and store array of exercises
-        }), (err) => console.log(err))
-    )
+        .then(json => {
+        const exercisesToAdd = []
+        json.results.map((exercise) => {
+            exercisesToAdd.push(exercise)
+            console.log("line 39:", exercisesToAdd)
+        }) 
+    this.setState({
+        exercises: exercisesToAdd
+    })
+    console.log("in getaPI:", json.results[0].name)
+        }  //add new key to state and store array of exercises
+        ), (err) => console.log(err))
+
 
     render() {
-        console.log(this.state)
+        console.log("line 50:", this.state.exercises)
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
@@ -58,7 +69,14 @@ class Home extends Component {
                         this.state.limit +
                         this.state.languageQuery 
                     } </a>
-                    <p>{this.state.genericApiUrl.results}</p>
+                    {/* <p>{this.state.exercises[0].name}</p> */}
+                    {/* {this.state.exercises.map((exercise, index) => {
+                        return (
+                            <p
+                            key={index}
+                            >exercise</p>
+                        )
+                    })} */}
                 </div>
             </div>
         )
