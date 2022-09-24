@@ -33,17 +33,19 @@ class Home extends Component {
         fetch(this.genericApiUrl)
         .then(response => { return response.json() })
         .then(json => {
-        const exercisesToAdd = []
-        json.results.map((exercise) => {
-            exercisesToAdd.push(exercise)
-            console.log("line 39:", exercisesToAdd)
-        }) 
-    this.setState({
-        exercises: exercisesToAdd
-    })
-    console.log("in getaPI:", json.results[0].name)
+            const exercisesToAdd = []
+            json.results.map((exercise) => {
+                exercisesToAdd.push(exercise)
+                console.log("line 39:", exercisesToAdd)
+            }) 
+
+            this.setState({
+                exercises: exercisesToAdd
+            })
+            console.log("in getaPI:", json.results[0].name)
         }  //add new key to state and store array of exercises
-        ), (err) => console.log(err))
+        ), (err) => console.log(err)
+    )
 
 
     render() {
