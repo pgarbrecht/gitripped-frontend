@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tile from './Tile';
+import Tile from './ApiExerciseTile';
 
 class Home extends Component {
     constructor(props) {
