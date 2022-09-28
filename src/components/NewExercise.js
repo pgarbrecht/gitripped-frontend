@@ -43,7 +43,12 @@ class NewExercise extends Component {
         // if we can fetch the data from this route 
         .then (res => res.json())
         .then (resJson => {
+            // see what data we're getting back
             console.log('New Exercise Form: ', resJson)
+            this.setState({
+                // set the input fields back to empty string
+                [e.target.id]: ''
+            }) 
         })
     }
     render() {
@@ -51,8 +56,7 @@ class NewExercise extends Component {
         return (
             <>
                 <h1>New Exercise</h1>
-                {/* need to add onSubmit = {this.handleSubmit} to form tag */}
-                <form >
+                <form onSubmit={this.handleSubmit}>
                     {/* id = has to match key in this.state*/}
                     <input
                         id='exerciseName'
