@@ -17,13 +17,16 @@ class NewExercise extends Component {
     }
 
     // handleChange method
-
     handleChange = (e) => {
+        console.log(e.target.value)
         this.setState({
             // account for all inputs
             [e.target.id]: e.target.value
         })
     }
+
+    // handleSubmit method
+    // handleSubmit = (e) 
     render() {
      
         return (
@@ -34,7 +37,8 @@ class NewExercise extends Component {
                     <input
                         id='exerciseName'
                         type='text'
-                        value={this.state.name}
+                        value={this.state.exerciseName}
+                        onChange={this.handleChange}
                         placeholder='Exercise Name'>
                     </input>
                 </form>
