@@ -15,6 +15,15 @@ class NewExercise extends Component {
             exerciseImageURL: ''
         }
     }
+
+    // handleChange method
+
+    handleChange = (e) => {
+        this.setState({
+            // account for all inputs
+            [e.target.id]: e.target.value
+        })
+    }
     render() {
      
         return (
