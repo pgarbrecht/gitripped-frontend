@@ -18,7 +18,8 @@ class NewExercise extends Component {
 
     // handleChange method
     handleChange = (e) => {
-        console.log(e.target.value)
+        // capture what user is typing in the input field
+        console.log(e.target.id, e.target.value)
         this.setState({
             // account for all inputs
             [e.target.id]: e.target.value
@@ -40,6 +41,27 @@ class NewExercise extends Component {
                         value={this.state.exerciseName}
                         onChange={this.handleChange}
                         placeholder='Exercise Name'>
+                    </input>
+                    <input
+                        id='exerciseDescription'
+                        type='text'
+                        value={this.state.exerciseDescription}
+                        onChange={this.handleChange}
+                        placeholder='Description'>
+                    </input>
+                    <input
+                        id='muscleGroup'
+                        type='text'
+                        value={this.state.muscleGroup}
+                        onChange={this.handleChange}
+                        placeholder='Muscle Group'>
+                    </input>
+                    <input
+                        id='exerciseImageURL'
+                        type='text'
+                        value={this.state.exerciseImageURL}
+                        onChange={this.handleChange}
+                        placeholder='Image URL'>
                     </input>
                 </form>
             
