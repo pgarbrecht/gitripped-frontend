@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import Home from './components/Home'
 import NewExercise from './components/NewExercise'
 import NavBar from './components/NavBar'
+import ShowAPIExercise from './components/ShowAPIExercise';
 
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ class App extends Component {
             <NavBar />
             <Routes>
               <Route path='/'element={<Home />}/>
+              <Route path='/ShowAPIExercise'element={<ShowAPIExercise />}/>
             </Routes>
           </Router>
         );
