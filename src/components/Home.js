@@ -22,7 +22,7 @@ class Home extends Component {
     getSearchUrl = () => {
         this.setState({
             searchUrl: this.state.baseUrl + this.state.limit
-        }, () => {
+        }, () => (
         fetch(this.state.searchUrl)
         .then(response => { return response.json() })
         .then(json => {
@@ -35,10 +35,10 @@ class Home extends Component {
             })
         }  //add new key to state and store array of exercises
         ), (err) => console.log(err)
-        })
+        ))
     }
 
-    getMuscleCategories = () => {
+    getMuscleCategories = () => (
         fetch(this.state.categoriesUrl)
         .then(response => { return response.json() })
         .then(json => {
@@ -51,7 +51,7 @@ class Home extends Component {
             })
         }  //add new key to state and store array of categories
         ), (err) => console.log(err)
-    }
+    )
 
     render() {
         console.log(this.state)
