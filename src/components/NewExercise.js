@@ -9,10 +9,11 @@ class NewExercise extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            exerciseName: '',
-            exerciseDescription: '',
-            muscleGroup: '', // do we want to allow user to add more than 1?
-            exerciseImageURL: ''
+            name: '',
+            description: '',
+            exerciseImage: '',
+            muscles: '', // do we want to allow user to add more than 1?
+            notes: ''
         }
     }
 
@@ -32,7 +33,7 @@ class NewExercise extends Component {
         // in holidays app, this was: 
         // fetch('http://localhost:3003/holidays', {
 
-        fetch('http://localhost:3000/new', {
+        fetch('http://localhost:3000/', {
             method: 'POST',
             body: JSON.stringify({[e.target.id]: e.target.value}),
             headers: {
@@ -52,39 +53,51 @@ class NewExercise extends Component {
         })
     }
     render() {
-     
+        console.log('line 55: ', this.state)
         return (
             <>
                 <h1>New Exercise</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className='flex flex-col items-center'>
                     {/* id = has to match key in this.state*/}
                     <input
-                        id='exerciseName'
+                        id='name'
                         type='text'
-                        value={this.state.exerciseName}
+                        value={this.state.name}
                         onChange={this.handleChange}
-                        placeholder='Exercise Name'>
+                        placeholder='Exercise Name'
+                        className='border-2'>
                     </input>
                     <input
-                        id='exerciseDescription'
+                        id='description'
                         type='text'
-                        value={this.state.exerciseDescription}
+                        value={this.state.description}
                         onChange={this.handleChange}
-                        placeholder='Description'>
+                        placeholder='Description'
+                        className='border-2'>
                     </input>
                     <input
-                        id='muscleGroup'
+                        id='exerciseImage'
                         type='text'
-                        value={this.state.muscleGroup}
+                        value={this.state.exerciseImage}
                         onChange={this.handleChange}
-                        placeholder='Muscle Group'>
+                        placeholder='Image URL'
+                        className='border-2'>
                     </input>
                     <input
-                        id='exerciseImageURL'
+                        id='muscles'
                         type='text'
-                        value={this.state.exerciseImageURL}
+                        value={this.state.muscles}
                         onChange={this.handleChange}
-                        placeholder='Image URL'>
+                        placeholder='Muscle Group'
+                        className='border-2'>
+                    </input>
+                    <input
+                        id='notes'
+                        type='text'
+                        value={this.state.notes}
+                        onChange={this.handleChange}
+                        placeholder='Notes'
+                        className='border-2'>
                     </input>
 
                     {/* submit button */}
