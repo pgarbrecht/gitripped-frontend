@@ -27,13 +27,32 @@ class NewExercise extends Component {
     }
 
     // handleSubmit method
-    // handleSubmit = (e) 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        // in holidays app, this was: 
+        // fetch('http://localhost:3003/holidays', {
+
+        fetch('http://localhost:3000/new', {
+            method: 'POST',
+            body: JSON.stringify({[e.target.id]: e.target.value}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        // if we can fetch the data from this route 
+        .then (res => res.json())
+        .then (resJson => {
+            console.log('New Exercise Form: ', resJson)
+        })
+    }
     render() {
      
         return (
             <>
                 <h1>New Exercise</h1>
-                <form>
+                {/* need to add onSubmit = {this.handleSubmit} to form tag */}
+                <form >
                     {/* id = has to match key in this.state*/}
                     <input
                         id='exerciseName'
@@ -63,6 +82,12 @@ class NewExercise extends Component {
                         onChange={this.handleChange}
                         placeholder='Image URL'>
                     </input>
+
+                    {/* submit button */}
+                    <input 
+                        type='submit'
+                        value='Add New Exercise'
+                    />
                 </form>
             
             </>
