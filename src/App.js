@@ -26,6 +26,7 @@ class App extends Component {
             <Routes>
               <Route path='/'element={<Home />}/>
               <Route path='/ShowAPIExercise'element={<ShowAPIExercise />}/>
+              <Route path='/new'element={<NewExercise />}/>
             </Routes>
           </Router>
         );

@@ -7,6 +7,10 @@ const NavBar = () => {
         <Link to='/'>
             <p>Home</p>
         </Link>
+        <Link to='/new'>
+            {/* this will become a button later */}
+            <p>Add New Exercise</p>
+        </Link>
     </div>
     )
 }
