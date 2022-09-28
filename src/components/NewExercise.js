@@ -20,7 +20,7 @@ class NewExercise extends Component {
     // handleChange method
     handleChange = (e) => {
         // capture what user is typing in the input field
-        console.log(e.target.id, e.target.value)
+        // console.log(e.target.id, e.target.value)
         this.setState({
             // account for all inputs
             [e.target.id]: e.target.value
@@ -52,6 +52,7 @@ class NewExercise extends Component {
             }) 
         })
     }
+
     render() {
         console.log('line 55: ', this.state)
         return (
