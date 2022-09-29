@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
-// WHAT I DID:
-// 1. Add 'New' link to nav (temporarily for easier access)
+let baseURL;
 
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3003/exercises';
+} else {
+  baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
+}
 
 class NewExercise extends Component {
     // need to add state to this component 
@@ -33,7 +37,7 @@ class NewExercise extends Component {
         // in holidays app, this was: 
         // fetch('http://localhost:3003/holidays', {
 
-        fetch('http://localhost:3000/', {
+        fetch(baseURL, {
             method: 'POST',
             body: JSON.stringify({[e.target.id]: e.target.value}),
             headers: {
