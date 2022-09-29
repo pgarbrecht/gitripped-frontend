@@ -22,20 +22,16 @@ if (process.env.NODE_ENV === 'development') {
 class App extends Component {
 	constructor(props) {
 		super(props);
-    //we will hold the custom exercises here
+        //we will hold the custom exercises here
 		this.state = {
-			name: "",
-      description: "",
-      exerciseImage: "",
-      muscles: "",
-      notes: "",
-		};
+            exercises: []
+        };
 	}
 
   //when component is loaded we'll run getExercises
   componentDidMount() {
 		this.getExercises();
-	}
+    }
 
   //accessing our custom exercises from the database
   getExercises = () => {
@@ -50,12 +46,37 @@ class App extends Component {
      })
      .then((data) => {
       console.log('data:', data);
-      // this.setState({ name: data.name });
+      this.setState({ 
+        name: data.name, 
+        description: data.description,
+        exerciseImage: data.exerciseImage,
+        muscles: data.muscles,
+        notes: data.notes
+    });
      });
    }
 
    //define handleAddExercise method here
+   // Here, 'exercise' will look like:
+        // exercise = {
+            // name: "",
+            // description: "",
+            // exerciseImage: "",
+            // muscles: "",
+            // notes: "",
+        // }
    handleAddExercise = (exercise) => {
+    const copyExercises = [...this.state.exercises]
+    copyExercises.unshift(exercise)
+    this.setState({
+        exercises: copyExercises,
+        // set form back to blank so user can add more exercises
+        name: "",
+        description: "",
+        exerciseImage: "",
+        muscles: "",
+        notes: "",
+    })
     console.log(exercise, 'in app.js, line 59')
    }
 
@@ -71,7 +92,7 @@ class App extends Component {
             <Routes>
               <Route path='/'element={<Home />}/>
               <Route path='/ShowAPIExercise'element={<ShowAPIExercise />}/>
-              <Route path='/new'element={<NewExercise />}/>
+              <Route path='/new'element={<NewExercise handleAddExercise={this.handleAddExercise}/>}/>
             </Routes>
           </Router>
         );

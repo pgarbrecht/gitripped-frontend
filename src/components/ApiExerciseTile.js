@@ -9,7 +9,7 @@ class Tile extends Component {
                 {
                     this.props.categoryArray.forEach(
                         category => {
-                            if(category.id == this.props.category) {
+                            if(category.id === this.props.category) {
                                 muscle = category.name
                             }
                         } 

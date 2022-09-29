@@ -60,7 +60,7 @@ class NewExercise extends Component {
     }
 
     render() {
-        console.log('line 55: ', this.state)
+        // console.log('line 55: ', this.state)
         return (
             <>
                 <h1>New Exercise</h1>

@@ -67,7 +67,7 @@ class Home extends Component {
                             categoryArray = {this.state.categories}
                             />
                         )
-                    })}
+                        })}
                 </div>
             </div>
         )
