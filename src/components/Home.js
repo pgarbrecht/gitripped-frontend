@@ -54,7 +54,6 @@ class Home extends Component {
     )
 
     render() {
-        console.log(this.state)
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
