@@ -54,6 +54,11 @@ class App extends Component {
      });
    }
 
+   //define handleAddExercise method here
+   handleAddExercise = (exercise) => {
+    console.log(exercise, 'in app.js, line 59')
+   }
+
     render() {
         return (
           // <>

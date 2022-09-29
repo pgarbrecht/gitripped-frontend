@@ -50,6 +50,8 @@ class NewExercise extends Component {
         .then (resJson => {
             // see what data we're getting back
             console.log('New Exercise Form: ', resJson)
+            //call the handleAddExercise method created in app.js
+            this.props.handleAddExercise(resJson)
             this.setState({
                 // set the input fields back to empty string
                 [e.target.id]: ''
