@@ -11,7 +11,6 @@ import {
   Route
 } from "react-router-dom";
 
-// let baseURL = process.env.REACT_APP_BACKEND_URL
 let baseURL;
 
 if (process.env.NODE_ENV === 'development') {
