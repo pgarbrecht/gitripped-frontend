@@ -36,10 +36,15 @@ class NewExercise extends Component {
         e.preventDefault()
         // in holidays app, this was: 
         // fetch('http://localhost:3003/holidays', {
-
+        console.log(baseURL, 'logging baseURL on line 39')
+        console.log(JSON.stringify({name: this.state.name, description: this.state.description}), 'name, this.state.name and desc., line 40')
+            //{"name":"test"} this.state.name, line 40
+        // console.log(JSON.stringify({[e.target.id]: e.target.value}), 'json.stringify line 40')
+            //this log is not working. It's returning an empty object: {} json.stringify line 40
         fetch(baseURL, {
             method: 'POST',
-            body: JSON.stringify({[e.target.id]: e.target.value}),
+            body: JSON.stringify({[e.target.id]: e.target.value}), //ISSUE IS HERE!
+            // body: JSON.stringify({name: this.state.name, description: this.state.description, exerciseImage: this.state.exerciseImage, muscles: this.state.muscles, notes: this.state.notes}),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -51,6 +56,7 @@ class NewExercise extends Component {
             // see what data we're getting back
             console.log('New Exercise Form: ', resJson)
             //call the handleAddExercise method created in app.js
+                //resJson is also what we're passing in as exercise in app.js
             this.props.handleAddExercise(resJson)
             this.setState({
                 // set the input fields back to empty string

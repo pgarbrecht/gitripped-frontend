@@ -68,19 +68,21 @@ class App extends Component {
    handleAddExercise = (exercise) => {
     const copyExercises = [...this.state.exercises]
     copyExercises.unshift(exercise)
+    console.log(exercise, 'logging exercise, line 71')
     this.setState({
         exercises: copyExercises,
         // set form back to blank so user can add more exercises
-        name: "",
-        description: "",
-        exerciseImage: "",
-        muscles: "",
-        notes: "",
+        // name: "",
+        // description: "",
+        // exerciseImage: "",
+        // muscles: "",
+        // notes: "",
     })
     console.log(exercise, 'in app.js, line 59')
    }
 
     render() {
+      console.log(this.state)
         return (
           // <>
           //   <Home /> 
