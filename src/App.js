@@ -11,6 +11,7 @@ import {
   Route
 } from "react-router-dom";
 
+// Define baseURL to dynamically retrieve data 
 let baseURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -24,7 +25,17 @@ class App extends Component {
 		super(props);
         //we will hold the custom exercises here
 		this.state = {
-            exercises: []
+            // exercises is an array of exercise objects (model)
+            exercises: [
+                {
+                    name: "",
+                    description: "",
+                    exerciseImage: "",
+                    muscles: "",
+                    notes: "",
+                }
+            ]
+
         };
 	}
 
@@ -33,30 +44,27 @@ class App extends Component {
 		this.getExercises();
     }
 
-  //accessing our custom exercises from the database
-  getExercises = () => {
-    fetch(baseURL)
-     .then((res) => {
-       console.log('got to fetch base url');
-      if (res.status === 200) {
-       return res.json();
-      } else {
-       return [];
-      }
-     })
-     .then((data) => {
-      console.log('data:', data);
-      this.setState({ 
-        name: data.name, 
-        description: data.description,
-        exerciseImage: data.exerciseImage,
-        muscles: data.muscles,
-        notes: data.notes
-    });
-     });
-   }
+    //accessing our custom exercises from the database
+    getExercises = () => {
+        fetch(baseURL)
 
-   //define handleAddExercise method here
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json();
+            } else {
+                return [];
+            }
+        })
+
+        .then((data) => {    
+            this.setState({
+                // grabbing data from db and updating state when components mount
+                exercises: data.allExercises
+            })        
+        });
+    }
+
+   // define handleAddExercise method here
    // Here, 'exercise' will look like:
         // exercise = {
             // name: "",
@@ -65,36 +73,31 @@ class App extends Component {
             // muscles: "",
             // notes: "",
         // }
-   handleAddExercise = (exercise) => {
-    const copyExercises = [...this.state.exercises]
-    copyExercises.unshift(exercise)
-    console.log(exercise, 'logging exercise, line 71')
-    this.setState({
-        exercises: copyExercises,
-        // set form back to blank so user can add more exercises
-        // name: "",
-        // description: "",
-        // exerciseImage: "",
-        // muscles: "",
-        // notes: "",
-    })
-    console.log(exercise, 'in app.js, line 59')
-   }
+
+    handleAddExercise = (exercise) => {
+        const copyExercises = [...this.state.exercises]
+        copyExercises.unshift(exercise)
+        this.setState({
+            exercises: copyExercises,
+            // set form back to blank so user can add more exercises
+            // name: "",
+            // description: "",
+            // exerciseImage: "",
+            // muscles: "",
+            // notes: "",
+        })
+    }
 
     render() {
-      console.log(this.state)
+        // console.log('App.js - line  93 --------------------', this.state.exercises)
         return (
-          // <>
-          //   <Home /> 
-          //   <NewExercise />
-          // </>
           
           <Router>
             <NavBar />
             <Routes>
               <Route path='/'element={<Home />}/>
               <Route path='/ShowAPIExercise'element={<ShowAPIExercise />}/>
-              <Route path='/new'element={<NewExercise handleAddExercise={this.handleAddExercise}/>}/>
+              <Route path='/new'element={<NewExercise/>}/>
             </Routes>
           </Router>
         );
