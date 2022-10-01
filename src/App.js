@@ -11,14 +11,8 @@ import {
   Route
 } from "react-router-dom";
 
-// Define baseURL to dynamically retrieve data 
-let baseURL;
-
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003/exercises';
-} else {
-  baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
-}
+// Define baseURL
+let baseURL = process.env.REACT_APP_BACKEND_URL
 
 class App extends Component {
 	constructor(props) {
