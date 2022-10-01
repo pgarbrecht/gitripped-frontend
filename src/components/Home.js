@@ -59,7 +59,7 @@ class Home extends Component {
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
                 <h2 className='text-white text-2xl'>All Exercises:</h2>
-                <div id="api-exercise-tile" className='grid w-3/4 h-[500px] bg-white'>
+                <div id="api-tile-container" className='grid w-3/4 grid-cols-4 h-[500px] gap-4 bg-white'>
                     {this.state.exercises.map((exercise, index) => {
                         return (
                             <ApiExerciseTile
@@ -72,16 +72,16 @@ class Home extends Component {
                         })}
                 </div>
                 <h2 className='text-white text-2xl'>My Exercises:</h2>
-                <div id="custom-exercise-tile" className='grid w-3/4 h-[500px] bg-white'>
-                    {this.state.exercises.map((exercise, index) => {
+                <div id="custom-exercise-tile" className='grid w-3/4 grid-cols-4 h-[500px] gap-4 bg-white'>
+                    {this.props.customExercises.map((exercise, index) => {
                         return (
-                            <CustomExerciseTile
+                            <CustomExerciseTile 
                              key={index}
-                            //  name={exercise.name}
-                            //  description={exercise.description}
-                            //  exerciseImage={exercise.exerciseImage}
-                            //  muscles={exercise.muscles}
-                            //  notes={exercise.notes}
+                             name={exercise.name}
+                             description={exercise.description}
+                             exerciseImage={exercise.exerciseImage}
+                             muscles={exercise.muscles}
+                             notes={exercise.notes}
                             />
                         )
                     })}

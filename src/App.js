@@ -89,7 +89,7 @@ class App extends Component {
           <Router>
             <NavBar />
             <Routes>
-              <Route path='/'element={<Home />}/>
+              <Route path='/'element={<Home customExercises={this.state.exercises}/>}/>
               <Route path='/showapi'element={<ShowAPIExercise />}/>
               <Route path='/new'element={<NewExercise/>}/>
             </Routes>
