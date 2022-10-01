@@ -90,7 +90,15 @@ class App extends Component {
             <NavBar />
             <Routes>
               <Route path='/'element={<Home />}/>
-              <Route path='/showapi'element={<ShowAPIExercise />}/>
+              <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises}/>}/>
+                {/* //need access to the api exercises and the custom exercises 
+
+                */}
+              {/* {(this.state.exercises)
+              ? <ShowAPIExercise exercises={this.state.exercises}
+                />
+                : ''
+                } */}
               <Route path='/new'element={<NewExercise/>}/>
             </Routes>
           </Router>
