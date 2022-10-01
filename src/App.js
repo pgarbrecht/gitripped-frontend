@@ -21,23 +21,22 @@ class App extends Component {
         //we will hold the custom exercises here
 		this.state = {
             // exercises is an array of exercise objects (model)
-            exercises: [
-                {
-                    name: "",
-                    description: "",
-                    exerciseImage: "",
-                    muscles: "",
-                    notes: "",
-                }
-            ]
-
+            customExercises: [{
+              name: "",
+              description: "",
+              exerciseImage: "",
+              muscles: "",
+              notes: "",
+            }],
+              baseUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=',
+              limit: "5",
+              searchUrl: "",
+              exercises: [],
+              categories: []
         };
 	}
 
-  //when component is loaded we'll run getExercises
-  componentDidMount() {
-		this.getExercises();
-    }
+  //CUSTOM EXERCISES HANDLERS
 
     //accessing our custom exercises from the database
     getExercises = () => {
@@ -54,16 +53,16 @@ class App extends Component {
         .then((data) => {    
             this.setState({
                 // grabbing data from db and updating state when components mount
-                exercises: data.allExercises
+                customExercises: data.allExercises
             })        
         });
     }
 
     handleAddExercise = (exercise) => {
-        const copyExercises = [...this.state.exercises]
+        const copyExercises = [...this.state.customExercises.exercises]
         copyExercises.unshift(exercise)
-        this.setState({
-            exercises: copyExercises,
+        this.customExercises.setState({
+          customExercises: copyExercises,
         })
     }
 
@@ -72,21 +71,62 @@ class App extends Component {
     // when clicked, need to get id of exercise 
     // pass that as a prop into /edit route 
     handleEditExercise = () => {
-        console.log('handleEditExercises here')
     }
     
+    //API EXERCISES HANDLERS
+  getSearchUrl = () => {
+      this.setState({
+          searchUrl: this.state.baseUrl + this.state.limit
+          // searchUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=5'
+      }, () => (
+      fetch(this.state.searchUrl)
+      .then(response => { return response.json() })
+      .then(json => {
+          const exercisesToAdd = []
+          json.results.forEach((exercise) => {
+              exercisesToAdd.push(exercise)
+          }) 
+          this.setState({
+              exercises: exercisesToAdd
+          })
+      }  //add new key to state and store array of exercises
+      ), (err) => console.log(err)
+      ))
+  }
+
+  getMuscleCategories = () => (
+      fetch('https://wger.de/api/v2/exercisecategory/?format=json')
+      .then(response => { return response.json() })
+      .then(json => {
+          const categoriesToAdd = []
+          json.results.forEach((category) => {
+              categoriesToAdd.push(category)
+          }) 
+          this.setState({
+              categories: categoriesToAdd
+          })
+      }  //add new key to state and store array of categories
+      ), (err) => console.log(err)
+  )
+
+  //run these methods when components mount
+  componentDidMount() {
+		this.getExercises();
+    this.getSearchUrl();
+    this.getMuscleCategories();
+    }
+
     render() {
-        // console.log('App.js - line  93 --------------------', this.state.exercises)
+        
         return (
           
           <Router>
             <NavBar />
             <Routes>
-              <Route path='/'element={<Home customExercises={this.state.exercises}/>}/>
+              <Route path='/'element={<Home customExercises={this.state.customExercises} apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
               <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises}/>}/>
               <Route path='/new'element={<NewExercise/>}/>
-              <Route path='/edit'element={<EditExercise exercises={this.state.exercises} handleEditExercise={this.handleEditExercise}/>}/>
-              
+              <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises} handleEditExercise={this.handleEditExercise}/>}/>
             </Routes>
           </Router>
         );
