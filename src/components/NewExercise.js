@@ -51,7 +51,7 @@ class NewExercise extends Component {
                 name: this.state.name,
                 description: this.state.description,
                 exerciseImage: this.state.exerciseImage,
-                muscles: this.state.musclesw,
+                muscles: this.state.muscles,
                 notes: this.state.notes
             }),
         })
