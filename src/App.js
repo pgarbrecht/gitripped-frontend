@@ -4,6 +4,7 @@ import Home from './components/Home'
 import NewExercise from './components/NewExercise'
 import NavBar from './components/NavBar'
 import ShowAPIExercise from './components/ShowAPIExercise';
+import EditExercise from './components/EditExercise';
 
 import {
   BrowserRouter as Router,
@@ -58,30 +59,22 @@ class App extends Component {
         });
     }
 
-   // define handleAddExercise method here
-   // Here, 'exercise' will look like:
-        // exercise = {
-            // name: "",
-            // description: "",
-            // exerciseImage: "",
-            // muscles: "",
-            // notes: "",
-        // }
-
     handleAddExercise = (exercise) => {
         const copyExercises = [...this.state.exercises]
         copyExercises.unshift(exercise)
         this.setState({
             exercises: copyExercises,
-            // set form back to blank so user can add more exercises
-            // name: "",
-            // description: "",
-            // exerciseImage: "",
-            // muscles: "",
-            // notes: "",
         })
     }
 
+    // Christina's notes:
+    // handleEditExercise method here 
+    // when clicked, need to get id of exercise 
+    // pass that as a prop into /edit route 
+    handleEditExercise = () => {
+        console.log('handleEditExercises here')
+    }
+    
     render() {
         // console.log('App.js - line  93 --------------------', this.state.exercises)
         return (
@@ -92,6 +85,8 @@ class App extends Component {
               <Route path='/'element={<Home />}/>
               <Route path='/showapi'element={<ShowAPIExercise />}/>
               <Route path='/new'element={<NewExercise/>}/>
+              <Route path='/edit'element={<EditExercise exercises={this.state.exercises} handleEditExercise={this.handleEditExercise}/>}/>
+              
             </Routes>
           </Router>
         );
