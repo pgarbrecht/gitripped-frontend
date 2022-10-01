@@ -11,6 +11,9 @@ const NavBar = () => {
             {/* this will become a button later */}
             <p>Add New Exercise</p>
         </Link>
+        <Link to ='/showapi'>
+                <p>See Exercise</p>
+        </Link>
     </div>
     )
 }

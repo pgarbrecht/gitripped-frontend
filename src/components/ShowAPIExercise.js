@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 const ShowAPIExercise = () => {
     return(
         <div>
-            <Link to ='/ShowAPIExercise'>
-                <p>Show Time 🏀</p>
-            </Link>
+            test
         </div>
     )
 }
