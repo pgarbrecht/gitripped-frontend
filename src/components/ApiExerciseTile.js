@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Tile extends Component {
+class ApiExerciseTile extends Component {
     render(){
         let muscle = ''
         return (
@@ -21,4 +21,4 @@ class Tile extends Component {
     }
 }
 
-export default Tile
+export default ApiExerciseTile
