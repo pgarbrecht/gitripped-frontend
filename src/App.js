@@ -4,6 +4,7 @@ import Home from './components/Home'
 import NewExercise from './components/NewExercise'
 import NavBar from './components/NavBar'
 import ShowAPIExercise from './components/ShowAPIExercise';
+import EditExercise from './components/EditExercise';
 
 import {
   BrowserRouter as Router,
@@ -92,6 +93,8 @@ class App extends Component {
               <Route path='/'element={<Home />}/>
               <Route path='/showapi'element={<ShowAPIExercise />}/>
               <Route path='/new'element={<NewExercise/>}/>
+              <Route path='/edit'element={<EditExercise/>}/>
+              
             </Routes>
           </Router>
         );

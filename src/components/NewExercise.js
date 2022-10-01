@@ -41,7 +41,7 @@ class NewExercise extends Component {
                 notes: this.state.notes
             }),
         })
-        
+
         // if we can fetch the data from this route, then proceed
         .then (res => { 
             if(res.ok) {
@@ -89,6 +89,7 @@ class NewExercise extends Component {
                     Add Custom Exercise
                 </h1>
 
+                {/* moving <form> to NewExerciseForm.js?? would require lots of refactoring and using props to pass data back up */}
                 <form 
                     onSubmit={this.handleSubmit} 
                     className='flex flex-col w-4/5 p-4 max-w-[400px] bg-[#ffffff] rounded mx-8'>
