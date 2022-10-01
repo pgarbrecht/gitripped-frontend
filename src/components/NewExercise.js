@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BackBtn from './BackBtn'
 
 class NewExercise extends Component {
     // need to add state to this component 
@@ -40,6 +41,7 @@ class NewExercise extends Component {
                 notes: this.state.notes
             }),
         })
+        
         // if we can fetch the data from this route, then proceed
         .then (res => { 
             if(res.ok) {
@@ -71,9 +73,25 @@ class NewExercise extends Component {
     render() {
         // console.log(this.state)
         return (
-            <>
-                <h1>New Exercise</h1>
-                <form onSubmit={this.handleSubmit} className='flex flex-col items-center'>
+            <div className='
+                bg-[#353535]
+                min-h-screen
+                flex
+                flex-col
+                justify-start
+                items-start
+                box-border
+            '>
+                {/* PAGE CONTENT BELOW THIS ============================================================ */}
+                <BackBtn />
+
+                <h1 className='text-[#FFD056] font-bold text-4xl my-8 mx-8'>
+                    Add Custom Exercise
+                </h1>
+
+                <form 
+                    onSubmit={this.handleSubmit} 
+                    className='flex flex-col w-4/5 p-4 max-w-[400px] bg-[#ffffff] rounded mx-8'>
                     {/* id = has to match key in this.state*/}
                     <input
                         id='name'
@@ -81,7 +99,7 @@ class NewExercise extends Component {
                         value={this.state.name}
                         onChange={this.handleChange}
                         placeholder='Exercise Name'
-                        className='border-2'>
+                        className='border rounded p-1.5 my-1'>
                     </input>
                     <input
                         id='description'
@@ -89,7 +107,7 @@ class NewExercise extends Component {
                         value={this.state.description}
                         onChange={this.handleChange}
                         placeholder='Description'
-                        className='border-2'>
+                        className='border rounded p-1.5 my-1'>
                     </input> 
                     <input
                         id='exerciseImage'
@@ -97,7 +115,7 @@ class NewExercise extends Component {
                         value={this.state.exerciseImage}
                         onChange={this.handleChange}
                         placeholder='Image URL'
-                        className='border-2'>
+                        className='border rounded p-1.5 my-1'>
                     </input>
                     <input
                         id='muscles'
@@ -105,7 +123,7 @@ class NewExercise extends Component {
                         value={this.state.muscles}
                         onChange={this.handleChange}
                         placeholder='Muscle Group'
-                        className='border-2'>
+                        className='border rounded p-1.5 my-1'>
                     </input>
                     <input
                         id='notes'
@@ -113,17 +131,18 @@ class NewExercise extends Component {
                         value={this.state.notes}
                         onChange={this.handleChange}
                         placeholder='Notes'
-                        className='border-2'>
+                        className='border rounded p-1.5 my-1'>
                     </input>
 
                     {/* submit button */}
                     <input 
                         type='submit'
                         value='Add New Exercise'
+                        className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
                     />
                 </form>
             
-            </>
+            </div>
         )
     }
 }
