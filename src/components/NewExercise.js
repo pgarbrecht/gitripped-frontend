@@ -85,14 +85,29 @@ class NewExercise extends Component {
                 {/* PAGE CONTENT BELOW THIS ============================================================ */}
                 <BackBtn />
 
-                <h1 className='text-[#FFD056] font-bold text-4xl my-8 mx-8'>
+                <h1 className='
+                    text-[#FFD056] 
+                    font-bold 
+                    text-4xl 
+                    my-8 
+                    mx-8
+                '>
                     Add Custom Exercise
                 </h1>
 
                 {/* moving <form> to NewExerciseForm.js?? would require lots of refactoring and using props to pass data back up */}
                 <form 
                     onSubmit={this.handleSubmit} 
-                    className='flex flex-col w-4/5 p-4 max-w-[400px] bg-[#ffffff] rounded mx-8'>
+                    className='
+                        flex 
+                        flex-col 
+                        w-4/5 
+                        p-4 
+                        max-w-[400px] 
+                        bg-[#ffffff] 
+                        rounded 
+                        mx-8
+                    '>
                     {/* id = has to match key in this.state*/}
                     <input
                         id='name'

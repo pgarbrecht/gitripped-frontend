@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import BackBtn from './BackBtn'
+import EditExerciseForm from './EditExerciseForm'
 
+// for now, you need to go to http://localhost:3000/edit to get to this page. once edit button is done, we will link this page to it. 
 
 class EditExercise extends Component {
     render () {
@@ -13,9 +16,14 @@ class EditExercise extends Component {
                 items-start
                 box-border
             '>
+                <BackBtn />
+
                 <h1 className='text-[#FFD056] font-bold text-4xl my-8 mx-8'>
                     Edit Exercise
                 </h1>
+
+                {/* EditExerciseForm.js component */}
+                <EditExerciseForm />
             </div>
         )
     }
