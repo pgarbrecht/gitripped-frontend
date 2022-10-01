@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Tile from './ApiExerciseTile';
+import ApiExerciseTile from './ApiExerciseTile';
+import CustomExerciseTile from './CustomExerciseTile';
 
 class Home extends Component {
     constructor(props) {
@@ -57,10 +58,11 @@ class Home extends Component {
         return (
             <div className='flex flex-col justify-center items-center bg-black w-full h-screen'>
                 <h1 className='text-white text-5xl'>Home</h1>
-                <div className='grid w-3/4 h-[500px] bg-white'>
+                <h2 className='text-white text-2xl'>All Exercises:</h2>
+                <div id="api-tile-container" className='grid w-3/4 grid-cols-4 h-[500px] gap-4 bg-white'>
                     {this.state.exercises.map((exercise, index) => {
                         return (
-                            <Tile
+                            <ApiExerciseTile
                             key={index}
                             exerciseName = {exercise.name}
                             category = {exercise.category.toString()}
@@ -68,6 +70,21 @@ class Home extends Component {
                             />
                         )
                         })}
+                </div>
+                <h2 className='text-white text-2xl'>My Exercises:</h2>
+                <div id="custom-exercise-tile" className='grid w-3/4 grid-cols-4 h-[500px] gap-4 bg-white'>
+                    {this.props.customExercises.map((exercise, index) => {
+                        return (
+                            <CustomExerciseTile 
+                             key={index}
+                             name={exercise.name}
+                             description={exercise.description}
+                             exerciseImage={exercise.exerciseImage}
+                             muscles={exercise.muscles}
+                             notes={exercise.notes}
+                            />
+                        )
+                    })}
                 </div>
             </div>
         )
