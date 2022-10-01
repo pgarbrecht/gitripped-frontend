@@ -57,7 +57,7 @@ class NewExercise extends Component {
         })
         // if we can fetch the data from this route, then proceed
         .then (res => { 
-            console.log('NewExercise.js Line 60: ',res.json())
+            // console.log('NewExercise.js Line 60: ',res.json())
             // I think the issue is that our response is coming back as HTML instead of JSON. 
             // every stack overflow forum states this, but doesn't provide a clear solution
             // "Unexpected token '<', \"<!DOCTYPE \"... is not valid
@@ -69,7 +69,7 @@ class NewExercise extends Component {
 
         .then (resJson => {
             // see what data we're getting back
-            console.log('New Exercise Form: ', resJson)
+            // console.log('New Exercise Form: ', resJson)
 
             // call the handleAddExercise method created in app.js
             // resJson is also what we're passing in as exercise in app.js
@@ -88,6 +88,7 @@ class NewExercise extends Component {
     }
 
     render() {
+        // console.log(this.state)
         return (
             <>
                 <h1>New Exercise</h1>
