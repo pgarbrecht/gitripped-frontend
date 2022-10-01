@@ -16,7 +16,7 @@ class NewExercise extends Component {
             name: '',
             description: '',
             exerciseImage: '',
-            muscles: '', // do we want to allow user to add more than 1?
+            muscles: '', // convert to drop down
             notes: ''
         }
     }
@@ -24,7 +24,7 @@ class NewExercise extends Component {
     // handleChange method
     handleChange = (e) => {
         // capture what user is typing in the input field
-        // console.log(e.target.id, e.target.value)
+        // console.log(this.state, baseURL) // confirms that values are being set to state
         this.setState({
             // account for all inputs
             [e.target.id]: e.target.value
@@ -34,39 +34,60 @@ class NewExercise extends Component {
     // handleSubmit method
     handleSubmit = (e) => {
         e.preventDefault()
-        // in holidays app, this was: 
-        // fetch('http://localhost:3003/holidays', {
-        console.log(baseURL, 'logging baseURL on line 39')
-        console.log(JSON.stringify({name: this.state.name, description: this.state.description}), 'name, this.state.name and desc., line 40')
-            //{"name":"test"} this.state.name, line 40
-        // console.log(JSON.stringify({[e.target.id]: e.target.value}), 'json.stringify line 40')
-            //this log is not working. It's returning an empty object: {} json.stringify line 40
+        console.log(this.state) // this confirms we are setting our data to state
+
+        // ======================================================
+        //  09-30-2022
+        // ====================================================== 
+
+        // on postman, we are using the '/exercises/new' route to post new data 
+        // perhaps we need to do the same thing here? 
         fetch(baseURL, {
             method: 'POST',
-            body: JSON.stringify({[e.target.id]: e.target.value}), //ISSUE IS HERE!
-            // body: JSON.stringify({name: this.state.name, description: this.state.description, exerciseImage: this.state.exerciseImage, muscles: this.state.muscles, notes: this.state.notes}),
             headers: {
                 'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: this.state.name,
+                description: this.state.description,
+                exerciseImage: this.state.exerciseImage,
+                muscles: this.state.musclesw,
+                notes: this.state.notes
+            }),
+        })
+        // if we can fetch the data from this route, then proceed
+        .then (res => { 
+            console.log('NewExercise.js Line 60: ',res.json())
+            // I think the issue is that our response is coming back as HTML instead of JSON. 
+            // every stack overflow forum states this, but doesn't provide a clear solution
+            // "Unexpected token '<', \"<!DOCTYPE \"... is not valid
+            if(res.ok) {
+                return res.json()
             }
+            throw new Error(res)
         })
 
-        // if we can fetch the data from this route 
-        .then (res => res.json())
         .then (resJson => {
             // see what data we're getting back
             console.log('New Exercise Form: ', resJson)
-            //call the handleAddExercise method created in app.js
-                //resJson is also what we're passing in as exercise in app.js
-            this.props.handleAddExercise(resJson)
+
+            // call the handleAddExercise method created in app.js
+            // resJson is also what we're passing in as exercise in app.js
+            // this.props.handleAddExercise(resJson)
+
             this.setState({
                 // set the input fields back to empty string
-                [e.target.id]: ''
+                name: '',
+                description: '',
+                exerciseImage: '',
+                muscles: '',
+                notes: '',
             }) 
         })
+        .catch(err => (console.log(err)))
     }
 
     render() {
-        // console.log('line 55: ', this.state)
         return (
             <>
                 <h1>New Exercise</h1>
@@ -87,7 +108,7 @@ class NewExercise extends Component {
                         onChange={this.handleChange}
                         placeholder='Description'
                         className='border-2'>
-                    </input>
+                    </input> 
                     <input
                         id='exerciseImage'
                         type='text'
