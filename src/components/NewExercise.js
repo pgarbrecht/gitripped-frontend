@@ -1,13 +1,5 @@
 import React, { Component } from 'react'
 
-let baseURL;
-
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003/exercises';
-} else {
-  baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
-}
-
 class NewExercise extends Component {
     // need to add state to this component 
     constructor(props) {
@@ -34,15 +26,8 @@ class NewExercise extends Component {
     // handleSubmit method
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state) // this confirms we are setting our data to state
-
-        // ======================================================
-        //  09-30-2022
-        // ====================================================== 
-
-        // on postman, we are using the '/exercises/new' route to post new data 
-        // perhaps we need to do the same thing here? 
-        fetch(baseURL, {
+        console.log(this.state) 
+        fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -57,10 +42,6 @@ class NewExercise extends Component {
         })
         // if we can fetch the data from this route, then proceed
         .then (res => { 
-            // console.log('NewExercise.js Line 60: ',res.json())
-            // I think the issue is that our response is coming back as HTML instead of JSON. 
-            // every stack overflow forum states this, but doesn't provide a clear solution
-            // "Unexpected token '<', \"<!DOCTYPE \"... is not valid
             if(res.ok) {
                 return res.json()
             }
