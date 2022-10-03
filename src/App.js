@@ -124,7 +124,7 @@ class App extends Component {
             <NavBar />
             <Routes>
               <Route path='/'element={<Home customExercises={this.state.customExercises} apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
-              <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises}/>}/>
+              <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
               <Route path='/new'element={<NewExercise/>}/>
               <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises} handleEditExercise={this.handleEditExercise}/>}/>
             </Routes>
