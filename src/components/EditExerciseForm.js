@@ -19,7 +19,7 @@ class EditExerciseForm extends Component {
                     id='name'
                     type='text'
                     // value={this.props.exercises} // need to change this to the current value. passed down as a prop?
-                    onChange={this.handleChange}
+                    onChange={this.props.handleChange}
                     placeholder='Exercise Name'
                     className='border rounded p-1.5 my-1'>
                 </input>
@@ -27,7 +27,7 @@ class EditExerciseForm extends Component {
                         id='description'
                         type='text'
                         // value={this.state.description}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                         placeholder='Description'
                         className='border rounded p-1.5 my-1'>
                     </input> 
@@ -35,7 +35,7 @@ class EditExerciseForm extends Component {
                         id='exerciseImage'
                         type='text'
                         // value={this.state.exerciseImage}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                         placeholder='Image URL'
                         className='border rounded p-1.5 my-1'>
                     </input>
@@ -43,7 +43,7 @@ class EditExerciseForm extends Component {
                         id='muscles'
                         type='text'
                         // value={this.state.muscles}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                         placeholder='Muscle Group'
                         className='border rounded p-1.5 my-1'>
                     </input>
@@ -51,7 +51,7 @@ class EditExerciseForm extends Component {
                         id='notes'
                         type='text'
                         // value={this.state.notes}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                         placeholder='Notes'
                         className='border rounded p-1.5 my-1'>
                     </input>
