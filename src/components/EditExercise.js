@@ -6,19 +6,10 @@ import EditExerciseForm from './EditExerciseForm'
 
 
 // 10-02-2022
-// 1. Need to have access to exercise's id
+// 1. Need to have access to exercise's id --> pass that down as prop to edit form
 // That way, we can access all the other details of the exercise and change it
-// this.props.exerciseToUpdate --> object of exercise we want to edit passed down from App.js
 
 class EditExercise extends Component {
-
-    handleChange = () => {
-        console.log('in handleChange function')
-    }
-    handleEditExercise = (e) => {
-        e.preventDefault()
-        console.log('in handleEditExercise function', e.target.id, ':' , e.target.value)
-    }
 
     render () {
         return (
@@ -38,7 +29,8 @@ class EditExercise extends Component {
                 </h1>
 
                 {/* EditExerciseForm.js component */}
-                <EditExerciseForm handleEditExercise={this.handleEditExercise} handleChange = {this.handleChange}/>
+                <EditExerciseForm />
+
             </div>
         )
     }

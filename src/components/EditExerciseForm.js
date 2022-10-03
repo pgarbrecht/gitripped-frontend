@@ -3,9 +3,29 @@ import React, { Component } from 'react'
 
 class EditExerciseForm extends Component {
 
+    
+    // detect changes to input fields
+    handleChange = () => {
+        console.log('in handleChange function')
+        
+        // need to SAVE the updated changes 
+        // would we use .setState if this page doesn't have state? 
+        // this.setState({
+            //     // account for all inputs
+            //     [e.target.id]: e.target.value
+            // })
+        }
+        
+    handleEditExercise = (e) => {
+        e.preventDefault()
+        console.log('in handleEditExercise function')
+        // fetch exercise data 
+        // will be very similar to handleSubmit for adding a new exercise   
+    }
+
     render () {
         return (
-            <form onSubmit={this.props.handleEditExercise} className='
+            <form onSubmit={this.handleEditExercise} className='
                 flex 
                 flex-col 
                 w-4/5 
@@ -18,8 +38,10 @@ class EditExerciseForm extends Component {
                 <input
                     id='name'
                     type='text'
-                    // value={this.props.exercises} // need to change this to the current value. passed down as a prop?
-                    onChange={this.props.handleChange}
+                    // need to change this to the current value. passed down as a prop?
+                    // if EditExercise.js passes <EditExerciseForm ❗️exerciseToEdit={_____}/>
+                    // value={this.props.❗️exercisetoEdit} 
+                    onChange={this.handleChange}
                     placeholder='Exercise Name'
                     className='border rounded p-1.5 my-1'>
                 </input>
@@ -27,7 +49,7 @@ class EditExerciseForm extends Component {
                         id='description'
                         type='text'
                         // value={this.state.description}
-                        onChange={this.props.handleChange}
+                        onChange={this.handleChange}
                         placeholder='Description'
                         className='border rounded p-1.5 my-1'>
                     </input> 
@@ -35,7 +57,7 @@ class EditExerciseForm extends Component {
                         id='exerciseImage'
                         type='text'
                         // value={this.state.exerciseImage}
-                        onChange={this.props.handleChange}
+                        onChange={this.handleChange}
                         placeholder='Image URL'
                         className='border rounded p-1.5 my-1'>
                     </input>
@@ -43,7 +65,7 @@ class EditExerciseForm extends Component {
                         id='muscles'
                         type='text'
                         // value={this.state.muscles}
-                        onChange={this.props.handleChange}
+                        onChange={this.handleChange}
                         placeholder='Muscle Group'
                         className='border rounded p-1.5 my-1'>
                     </input>
@@ -51,7 +73,7 @@ class EditExerciseForm extends Component {
                         id='notes'
                         type='text'
                         // value={this.state.notes}
-                        onChange={this.props.handleChange}
+                        onChange={this.handleChange}
                         placeholder='Notes'
                         className='border rounded p-1.5 my-1'>
                     </input>
