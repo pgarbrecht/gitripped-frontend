@@ -12,7 +12,14 @@ class ShowContainerCustom extends Component {
             items-start
             box-border
         '>
-                {this.props.exerciseName}
+                <h1 className='
+                    text-[#FFD056] 
+                    font-bold 
+                    text-4xl 
+                    my-8 
+                    mx-8
+                '>{this.props.exerciseName}
+                </h1>
             </div>
         )
     }
