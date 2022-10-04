@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 class ShowContainerCustom extends Component {
     render(){
         let muscle = ''
+        console.log(this.props.category, 'line 6 of showcontainercustom')
+        console.log(this.props.exerciseName, 'line 7 of showcontainercustom')
         return(
             <div className='
             bg-[#353535]
@@ -25,15 +27,16 @@ class ShowContainerCustom extends Component {
                 <h2>Description: {this.props.exerciseDescription}
                 </h2>
                     {this.props.categoryArray.forEach(category => {
-                            console.log(category.id)
-                            console.log(this.props.category)
-                            // if(category.id.toString() === this.props.category.toString()){
-                            //     muscle = category.name
-                            // }
+                            console.log(category.name, 'line 30 of showcontainercustom')
+                            console.log(this.props.category.toString(), 'line 31 of showcontainercustom')
+                            console.log(this.props.categoryArray.name, 'line32 categoryArray')
+                            if(category.name == this.props.category.toString()){
+                                muscle = category.name
+                            }
                         } 
                     )
                     }
-                {/* <p> Muscle Groups: {muscle}</p> */}
+                <p> Muscle Groups: {muscle}</p>
                 </div>
             </div>
         )
