@@ -9,7 +9,7 @@ class ApiExerciseTile extends Component {
                 {
                     this.props.categoryArray.forEach(
                         category => {
-                            if(category.id === this.props.category) {
+                            if(category.id.toString() === this.props.category.toString()) {
                                 console.log(category.name)
                                 muscle = category.name
                             }
