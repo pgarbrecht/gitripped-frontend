@@ -4,8 +4,8 @@ class ApiExerciseTile extends Component {
     render(){
         let muscle = ''
         return (
-            <div id="tile" className='border-black border-2 rounded-md '>
-                <p>{this.props.exerciseName}</p>
+            <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44'>
+                <p className='font-bold'>{this.props.exerciseName}</p>
                 {
                     this.props.categoryArray.forEach(
                         category => {
@@ -16,8 +16,9 @@ class ApiExerciseTile extends Component {
                         } 
                     )
                 }
-                <p>Muscle Group: {muscle}</p>
-                </div>
+                <p>{muscle}</p>
+                <p className='truncate' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
+            </div>
         )
     }
 }
