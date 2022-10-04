@@ -6,37 +6,36 @@ class ShowAPIExercise extends Component {
     render() {
     return(
         <div>
-        {this.props.apiExercises.map((exercise) => {
+        {this.props.apiExercises.map((exercise, index) => {
         return(
             <ShowContainerAPI
-            key={exercise.id}
+            // key={exercise.id}
+            key={index}
             exerciseName = {exercise.name}
-            />
-        // <div 
-        //     key = {exercise.id}
-        //     category = {exercise.category.toString()}
-        //     categoryArray = {this.props.categories}
-        //     >
-        // <div>
-        //     <h2>muscles begin {muscle = exercise.category.name} muscles end</h2>
-        // </div>
-        // <h1>name: {exercise.name} </h1>
-        
-        // <h2>description: {exercise.description}</h2>
-        // <div> Image:
-        //     <img src = {exercise.exerciseImage}/>
-        // </div>
-        // <h2>muscles: {exercise.muscles}</h2>
-        // <h2>notes: {exercise.notes}</h2>
-        // <h2>url: {exercise.searchUrl}</h2>
-            
-        // </div>
-            )}
+            category = {exercise.category}
+            categoryArray = {this.props.categories}
+            />)}
         )}
         </div>
         )
     }
 }
+
+
+export default ShowAPIExercise
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const ShowAPIExercise = () => {
 //     return(
@@ -69,4 +68,3 @@ class ShowAPIExercise extends Component {
 //     }
 // }
 
-export default ShowAPIExercise
