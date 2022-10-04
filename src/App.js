@@ -4,6 +4,7 @@ import Home from './components/Home'
 import NewExercise from './components/NewExercise'
 import NavBar from './components/NavBar'
 import ShowAPIExercise from './components/ShowAPIExercise';
+import ShowCustomExercise from './components/ShowCustomExercise'
 import EditExercise from './components/EditExercise';
 
 import {
@@ -128,7 +129,7 @@ class App extends Component {
               <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
 
               <Route path='/showcustom'element=
-              {<ShowContainerExercise
+              {<ShowCustomExercise
               customExercises={this.state.customExercises}/>}/>
 
               <Route path='/new'element={<NewExercise/>}/>

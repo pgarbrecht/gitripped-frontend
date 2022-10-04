@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ShowContainerExercise extends Component {
+class ShowCustomExercise extends Component {
     render(){
         return(
             <div>
@@ -12,4 +12,4 @@ class ShowContainerExercise extends Component {
     }
 }
 
-export default ShowContainerExercise
+export default ShowCustomExercise
