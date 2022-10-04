@@ -12,6 +12,7 @@ class ShowAPIExercise extends Component {
             // key={exercise.id}
             key={index}
             exerciseName = {exercise.name}
+            exerciseDescription = {exercise.description}
             category = {exercise.category}
             categoryArray = {this.props.categories}
             />)}
