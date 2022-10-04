@@ -4,7 +4,9 @@ class ShowContainerCustom extends Component {
     render(){
         return(
             <div>
-                test
+            <p>{this.props.name}</p>
+            <p>{this.props.muscles}</p>
+            <p>{this.props.description}</p>
             </div>
         )
     }
