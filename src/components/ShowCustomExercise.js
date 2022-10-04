@@ -5,10 +5,17 @@ class ShowCustomExercise extends Component {
     render(){
         return(
             <div>
-            <p>{this.props.name}</p>
-            <p>{this.props.muscles}</p>
-            <p>{this.props.description}</p>
-            </div>
+            {this.props.customExercises.map((exercise, index) => {
+                return(
+                    <ShowContainerCustom
+                    key={index}
+                    exerciseName={exercise.name}
+                    exerciseDescription = {exercise.description}
+                    category = {exercise.category}
+                    categoryArray = {this.props.categories}
+                    />)}
+                )}
+        </div>
         )
     }
 }
