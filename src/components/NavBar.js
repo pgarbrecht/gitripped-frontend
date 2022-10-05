@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return(
-    <div>
+    <div className='flex justify-between'>
         <Link to='/'>
-            <p>Home</p>
+            <h1 className='text-yellow text-2xl pl-4'>GITRipped</h1>
         </Link>
+        <div className='flex justify-evenly'>
         <Link to='/new'>
             {/* this will become a button later */}
-            <p>Add New Exercise</p>
+            <p className='pr-4'>Add New Exercise</p>
         </Link>
         <Link to ='/showapi'>
-                <p>See Exercise</p>
+                <p className='pr-4'>See Exercise</p>
         </Link>
-        <Link to ='/edit'>
-                <p>Edit Exercise</p>
-        </Link>
+
+        </div>
     </div>
     )
 }
