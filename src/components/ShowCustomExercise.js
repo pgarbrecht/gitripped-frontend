@@ -3,7 +3,7 @@ import ShowContainerCustom from './ShowContainerCustom';
 
 class ShowCustomExercise extends Component {
     render(){
-
+        console.log(this.props)
         const customExerciseId = window.location.search.slice(4);
 
         return(
@@ -20,6 +20,7 @@ class ShowCustomExercise extends Component {
                             exerciseDescription = {exercise.description}
                             category = {exercise.muscles}
                             categoryArray = {this.props.categories}
+                            handleDeleteExercise = {this.props.handleDeleteExercise}
                             />)
                     }
                 }        

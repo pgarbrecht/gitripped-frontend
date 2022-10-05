@@ -74,6 +74,18 @@ class App extends Component {
     handleEditExercise = () => {
     }
     
+    handleDeleteExercise = (id) => {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
+        method: 'DELETE'
+      }).then( response => {
+        const findIndex = this.state.customExercises.findIndex(exercise => exercise._id === id)
+        const copyCustomExercises = [...this.state.customExercises]
+        copyCustomExercises.splice(findIndex, 1)
+        this.setState({customExercises: copyCustomExercises})
+        console.log('got to bottom of handle delete');
+      })
+    }
+
     //API EXERCISES HANDLERS
   getSearchUrl = () => {
       this.setState({
@@ -130,7 +142,7 @@ class App extends Component {
 
               <Route path='/showcustom'element=
               {<ShowCustomExercise
-              customExercises={this.state.customExercises} categories={this.state.categories}/>}/>
+              customExercises={this.state.customExercises} categories={this.state.categories} handleDeleteExercise={this.handleDeleteExercise} />}/>
 
               <Route path='/new'element={<NewExercise/>}/>
               <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises}/>}/>
