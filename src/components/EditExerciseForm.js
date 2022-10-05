@@ -5,7 +5,7 @@ class EditExerciseForm extends Component {
 
     
     // detect changes to input fields
-    handleChange = () => {
+    handleChange = (e) => {
         console.log('in handleChange function')
         
         // need to SAVE the updated changes 
@@ -21,6 +21,7 @@ class EditExerciseForm extends Component {
         console.log('in handleEditExercise function')
         // fetch exercise data 
         // will be very similar to handleSubmit for adding a new exercise   
+        fetch('localhost:3003/edit/9210471923')
     }
 
     render () {

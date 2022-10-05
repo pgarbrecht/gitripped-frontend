@@ -14,6 +14,9 @@ const NavBar = () => {
         <Link to ='/showapi'>
                 <p>See Exercise</p>
         </Link>
+        <Link to ='/edit'>
+                <p>Edit Exercise</p>
+        </Link>
     </div>
     )
 }

@@ -133,14 +133,21 @@ class NewExercise extends Component {
                         placeholder='Image URL'
                         className='border rounded p-1.5 my-1'>
                     </input>
-                    <input
+                    <select
                         id='muscles'
                         type='text'
-                        value={this.state.muscles}
+                        // value={this.state.muscles}
                         onChange={this.handleChange}
                         placeholder='Muscle Group'
                         className='border rounded p-1.5 my-1'>
-                    </input>
+                            <option value='Abs'>Abs</option>
+                            <option value='Arms'>Arms</option>
+                            <option value='Back'>Back</option>
+                            <option value='Calves'>Calves</option>
+                            <option value='Chest'>Chest</option>
+                            <option value='Legs'>Legs</option>
+                            <option value='Shoulders'>Shoulders</option>
+                    </select>
                     <input
                         id='notes'
                         type='text'
