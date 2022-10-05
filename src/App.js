@@ -120,7 +120,7 @@ class App extends Component {
     render() {
         
         return (
-          
+        
           <Router>
             <NavBar />
             <Routes>
@@ -133,7 +133,7 @@ class App extends Component {
               customExercises={this.state.customExercises} categories={this.state.categories}/>}/>
 
               <Route path='/new'element={<NewExercise/>}/>
-              <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises} handleEditExercise={this.handleEditExercise}/>}/>
+              <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises}/>}/>
             </Routes>
           </Router>
         );

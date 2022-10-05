@@ -4,7 +4,17 @@ import EditExerciseForm from './EditExerciseForm'
 
 // for now, you need to go to http://localhost:3000/edit to get to this page. once edit button is done, we will link this page to it. 
 
+/* 
+
+10-02-2022
+1. Need to have access to exercise's id --> pass that down as prop to edit form
+That way, we can access all the other details of the exercise and change it
+
+FROM SHOW PAGE --> pass exercise id to this page
+*/
+
 class EditExercise extends Component {
+
     render () {
         return (
             <div className='
@@ -23,7 +33,8 @@ class EditExercise extends Component {
                 </h1>
 
                 {/* EditExerciseForm.js component */}
-                <EditExerciseForm />
+                <EditExerciseForm customExercises = {this.props.customExercises}/>
+
             </div>
         )
     }
