@@ -15,6 +15,7 @@ class ShowContainerCustom extends Component {
             items-start
             box-border
         '>
+             <a href={`/edit?id=${this.props._id}`}>Edit</a>
                 <h1 className='
                     text-[#FFD056] 
                     font-bold 

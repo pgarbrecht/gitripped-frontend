@@ -28,6 +28,7 @@ class Home extends Component {
                         return (
                             <CustomExerciseTile 
                              key={index}
+                             id = {exercise._id}
                              name={exercise.name}
                              description={exercise.description}
                              exerciseImage={exercise.exerciseImage}

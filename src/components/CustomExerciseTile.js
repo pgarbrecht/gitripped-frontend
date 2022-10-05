@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 class CustomExerciseTile extends Component {
     render(){
@@ -8,7 +9,14 @@ class CustomExerciseTile extends Component {
             <p className='font-bold'>{this.props.name}</p>
             <p>{this.props.muscles}</p>
             <p className='truncate'>{this.props.description}</p>
-            <p><a href='/exercises/' className='underline'>View More</a></p>
+            {/* <p><a href='/exercises/' className='underline'>View More</a></p> */}
+
+            <Link to ={`/showcustom?id=${this.props.id}`} 
+                exerciseToShow={this.props.name}
+                exerciseId={this.props.id}
+                >
+                <p className='pr-4'>View More</p>
+            </Link>
             </div>
             </>
         )
