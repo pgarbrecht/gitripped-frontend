@@ -126,7 +126,7 @@ class App extends Component {
             <Routes>
               <Route path='/'element={<Home customExercises={this.state.customExercises} apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
 
-              <Route path='/showapi'element={<ShowAPIExercise apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
+              <Route path='/showapi' element={<ShowAPIExercise apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
 
               <Route path='/showcustom'element=
               {<ShowCustomExercise

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 class ApiExerciseTile extends Component {
     render(){
@@ -18,7 +19,13 @@ class ApiExerciseTile extends Component {
                 }
                 <p>{muscle}</p>
                 <p className='truncate' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
-                <p><a href='#' className='underline'>View More</a></p>
+                {/* <p><a href={`/showapi/${this.props.id}`} className='underline'>View More</a></p> */}
+                <Link to ={`/showapi?id=${this.props.id}`} 
+                exerciseToShow={this.props.exercise}
+                exerciseId={this.props.id}
+                >
+                <p className='pr-4'>View More</p>
+                </Link>
             </div>
         )
     }
