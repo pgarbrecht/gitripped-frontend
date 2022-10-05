@@ -4,6 +4,7 @@ import ShowContainerAPI from './ShowContainerAPI';
 
 class ShowAPIExercise extends Component {
     render() {
+        const apiExerciseId = parseInt(window.location.search.slice(4));
     return(
         <div>
         {this.props.apiExercises.map((exercise, index) => {
@@ -11,6 +12,7 @@ class ShowAPIExercise extends Component {
             <ShowContainerAPI
             // key={exercise.id}
             key={index}
+            id={apiExerciseId}
             exerciseName = {exercise.name}
             exerciseDescription = {exercise.description}
             category = {exercise.category}

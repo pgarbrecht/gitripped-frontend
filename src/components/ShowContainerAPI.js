@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 class ShowContainerAPI extends Component {
     render(){
         let muscle = ''
+        // const queryString = window.location.search.slice(4);
+        // console.log("queryString", queryString);
         return (
             <div>
                 {/* {console.log('test 9')} */}
