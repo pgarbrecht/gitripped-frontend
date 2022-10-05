@@ -13,6 +13,7 @@ class Home extends Component {
                         return (
                             <ApiExerciseTile
                             key={index}
+                            id = {exercise.id}
                             exerciseName = {exercise.name}
                             exerciseDescription = {exercise.description}
                             category = {exercise.category.toString()}
