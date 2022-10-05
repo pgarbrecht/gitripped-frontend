@@ -15,7 +15,7 @@ class ShowContainerCustom extends Component {
             items-start
             box-border
         '>
-             <a href={`/edit?id=${this.props._id}`}>Edit</a>
+             <a href={`/edit?id=${this.props.id}`}>Edit</a>
                 <h1 className='
                     text-[#FFD056] 
                     font-bold 
@@ -28,9 +28,6 @@ class ShowContainerCustom extends Component {
                 <h2>Description: {this.props.exerciseDescription}
                 </h2>
                     {this.props.categoryArray.forEach(category => {
-                            console.log(category.name, 'line 30 of showcontainercustom')
-                            console.log(this.props.category.toString(), 'line 31 of showcontainercustom')
-                            console.log(this.props.categoryArray.name, 'line32 categoryArray')
                             if(category.name == this.props.category.toString()){
                                 muscle = category.name
                             }

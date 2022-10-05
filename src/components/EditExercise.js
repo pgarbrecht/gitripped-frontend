@@ -16,6 +16,7 @@ FROM SHOW PAGE --> pass exercise id to this page
 class EditExercise extends Component {
 
     render () {
+        const editExerciseId = window.location.search.slice(4);
         return (
             <div className='
                 bg-[#353535]
@@ -33,8 +34,7 @@ class EditExercise extends Component {
                 </h1>
 
                 {/* EditExerciseForm.js component */}
-                <EditExerciseForm customExercises = {this.props.customExercises}/>
-
+                <EditExerciseForm editExerciseId={editExerciseId} customExercises={this.props.customExercises}/>
             </div>
         )
     }

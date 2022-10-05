@@ -13,8 +13,8 @@ class CustomExerciseTile extends Component {
             {/* <p><a href='/exercises/' className='underline'>View More</a></p> */}
 
             <Link to ={`/showcustom?id=${this.props.id}`} 
-                exerciseToShow={this.props.name}
-                exerciseId={this.props.id}
+                // exercisetoshow={this.props.name}
+                // exerciseid={this.props.id}
                 >
                 <p className='pr-4'>View More</p>
             </Link>

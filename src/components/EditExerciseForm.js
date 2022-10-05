@@ -21,12 +21,20 @@ class EditExerciseForm extends Component {
         console.log('in handleEditExercise function')
         // fetch exercise data 
         // will be very similar to handleSubmit for adding a new exercise   
-        fetch('localhost:3003/edit/9210471923')
+        // fetch('localhost:3003/edit/9210471923')
+        //START HERE TOMORROW!
     }
 
     render () {
+        let exerciseToEdit=''
         return (
-            <form onSubmit={this.handleEditExercise} className='
+            <>
+            {this.props.customExercises.forEach(exercise => {
+                if(exercise._id == this.props.editExerciseId){
+                    exerciseToEdit= exercise
+                }
+            })}
+                    <form onSubmit={this.handleEditExercise} className='
                 flex 
                 flex-col 
                 w-4/5 
@@ -39,9 +47,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='name'
                     type='text'
-                    // need to change this to the current value. passed down as a prop?
-                    // if EditExercise.js passes <EditExerciseForm ❗️exerciseToEdit={_____}/>
-                    // value={this.props.❗️exercisetoEdit} 
+                    value={exerciseToEdit.name} 
                     onChange={this.handleChange}
                     placeholder='Exercise Name'
                     className='border rounded p-1.5 my-1'>
@@ -49,7 +55,7 @@ class EditExerciseForm extends Component {
                 <input
                         id='description'
                         type='text'
-                        // value={this.state.description}
+                        value={exerciseToEdit.description}
                         onChange={this.handleChange}
                         placeholder='Description'
                         className='border rounded p-1.5 my-1'>
@@ -57,7 +63,7 @@ class EditExerciseForm extends Component {
                     <input
                         id='exerciseImage'
                         type='text'
-                        // value={this.state.exerciseImage}
+                        value={exerciseToEdit.exerciseImage}
                         onChange={this.handleChange}
                         placeholder='Image URL'
                         className='border rounded p-1.5 my-1'>
@@ -65,7 +71,7 @@ class EditExerciseForm extends Component {
                     <input
                         id='muscles'
                         type='text'
-                        // value={this.state.muscles}
+                        value={exerciseToEdit.muscles}
                         onChange={this.handleChange}
                         placeholder='Muscle Group'
                         className='border rounded p-1.5 my-1'>
@@ -73,7 +79,7 @@ class EditExerciseForm extends Component {
                     <input
                         id='notes'
                         type='text'
-                        // value={this.state.notes}
+                        value={exerciseToEdit.notes}
                         onChange={this.handleChange}
                         placeholder='Notes'
                         className='border rounded p-1.5 my-1'>
@@ -86,6 +92,7 @@ class EditExerciseForm extends Component {
                         className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
                     />
             </form>
+            </>
         )
     }
 }
