@@ -4,59 +4,63 @@ import React, { Component } from 'react'
 class EditExerciseForm extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            name: '',
-            description: '',
-            exerciseImage: '',
-            muscles: '',
-            notes: '',
-            exerciseToEdit: {},
-        }
     }
-    getExerciseToEdit = () => {
-        {this.props.customExercises.forEach(exercise => {
-            if(exercise._id == this.props.editExerciseId){
-                // exerciseToEdit= exercise
-                this.setState({
-                    exerciseToEdit: exercise
-                })
-            }
-        })}
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         name: '',
+    //         description: '',
+    //         exerciseImage: '',
+    //         muscles: '',
+    //         notes: '',
+    //         exerciseToEdit: {},
+    //     }
+    // }
+    // getExerciseToEdit = () => {
+    //     {this.props.customExercises.forEach(exercise => {
+    //         if(exercise._id == this.props.editExerciseId){
+    //             // exerciseToEdit= exercise
+    //             this.setState({
+    //                 exerciseToEdit: exercise
+    //             })
+    //         }
+    //     })}
+    // }
 
-    componentDidMount() {
-        this.getExerciseToEdit()
-    }
+    // componentDidMount() {
+    //     this.getExerciseToEdit()
+    // }
 
     handleChange = (e) => {
         console.log(e.target.value)
         console.log(e.target.id)
         // need to SAVE the updated changes 
         // would we use .setState if this page doesn't have state? 
-        this.setState({
-                // account for all inputs
-                [e.target.id]: e.target.value
-            })
+        // this.setState({
+        //         // account for all inputs
+        //         [e.target.id]: e.target.value
+        //     })
         }
 
-    preventDefaultOnSubmit = (e) => {
-        e.preventDefault()
-        let exerciseToChange = {
-            name: this.state.name,
-            description: this.state.description,
-            exerciseImage: this.state.exerciseImage,
-            muscles: this.state.muscles,
-            notes: this.state.notes
-        }
-        console.log(exerciseToChange)
-        // this.setState({ 
-        //     exerciseToEdit: exerciseToChange
-        // })
-        // console.log('lin637',this.state.exerciseToEdit)
-        this.props.handleEditExercise(e,exerciseToChange)
-    }
+    // preventDefaultOnSubmit = (e) => {
+    //     e.preventDefault()
+    //     let exerciseToChange = {
+    //         name: this.state.name,
+    //         description: this.state.description,
+    //         exerciseImage: this.state.exerciseImage,
+    //         muscles: this.state.muscles,
+    //         notes: this.state.notes
+    //     }
+    //     console.log(exerciseToChange)
+    //     // this.setState({ 
+    //     //     exerciseToEdit: exerciseToChange
+    //     // })
+    //     // console.log('lin637',this.state.exerciseToEdit)
+    //     this.props.handleEditExercise(e,exerciseToChange)
+    // }
 
     render () {
+        console.log(this.props, 'line 60 of edit')
         // let exerciseToEdit=''
         // console.log(this.state)
         return (
@@ -67,7 +71,7 @@ class EditExerciseForm extends Component {
                     }
                 })} */}
                
-                <form onSubmit={this.preventDefaultOnSubmit} className='
+                <form className='
                     flex 
                     flex-col 
                     w-4/5 
@@ -80,7 +84,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='name'
                     type='text'
-                    value={this.state.exerciseToEdit.name} 
+                    value={this.props.exerciseToEdit.name} 
                     onChange={this.handleChange}
                     placeholder='Exercise Name'
                     className='border rounded p-1.5 my-1'>
@@ -88,7 +92,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='description'
                     type='text'
-                    value={this.state.exerciseToEdit.description}
+                    value={this.props.exerciseToEdit.description}
                     onChange={this.handleChange}
                     placeholder='Description'
                     className='border rounded p-1.5 my-1'>
@@ -96,7 +100,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='exerciseImage'
                     type='text'
-                    value={this.state.exerciseToEdit.exerciseImage}
+                    value={this.props.exerciseToEdit.exerciseImage}
                     onChange={this.handleChange}
                     placeholder='Image URL'
                     className='border rounded p-1.5 my-1'>
@@ -104,7 +108,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='muscles'
                     type='text'
-                    // value={exerciseToEdit.muscles}
+                    value={this.props.exerciseToEdit.muscles}
                     onChange={this.handleChange}
                     placeholder='Muscle Group'
                     className='border rounded p-1.5 my-1'>
@@ -112,7 +116,7 @@ class EditExerciseForm extends Component {
                 <input
                     id='notes'
                     type='text'
-                    // value={exerciseToEdit.notes}
+                    value={this.props.exerciseToEdit.notes}
                     onChange={this.handleChange}
                     placeholder='Notes'
                     className='border rounded p-1.5 my-1'>

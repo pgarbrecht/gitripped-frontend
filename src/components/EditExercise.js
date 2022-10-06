@@ -3,24 +3,11 @@ import BackBtn from './BackBtn'
 import EditExerciseForm from './EditExerciseForm'
 
 class EditExercise extends Component {
-    
-    getData = () => {
-        this.props.exerciseToEdit.setState({
-            id: '',
-            name: '',
-            description: '',
-            exerciseImage: '',
-            muscles: '',
-            notes: '',
-        })
+    constructor(props) {
+        super(props)
     }
-
-    componentDidMount() {
-        this.getData()
-    }
-
     render () {
-        const editExerciseId = window.location.search.slice(4)
+        // const editExerciseId = window.location.search.slice(4)
         return (
             <div className='
                 bg-[#353535]
@@ -38,7 +25,9 @@ class EditExercise extends Component {
                 </h1>
 
                 {/* EditExerciseForm.js component */}
-                <EditExerciseForm editExerciseId={editExerciseId} customExercises={this.props.customExercises} handleEditExercise={this.props.handleEditExercise} />
+                <EditExerciseForm 
+                // editExerciseId={editExerciseId} 
+                customExercises={this.props.customExercises} handleEditExercise={this.props.handleEditExercise} exerciseToEdit={this.props.exerciseToEdit}/>
             </div>
         )
     }

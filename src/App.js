@@ -162,7 +162,9 @@ class App extends Component {
                     element={<Home 
                         customExercises={this.state.customExercises} 
                         apiExercises={this.state.exercises} 
-                        categories={this.state.categories}/>}
+                        categories={this.state.categories}
+                        passExerciseData={this.passExerciseData}
+                        />}
                 />
                 <Route 
                     path='/showapi' 

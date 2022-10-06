@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 class ShowContainerCustom extends Component {
     constructor(props) {
@@ -30,7 +31,9 @@ class ShowContainerCustom extends Component {
             box-border
         '>
             {/* {`${baseURL}/${this.props.id}`} */}
-             <a href={`/edit?id=${this.props.id}`} >Edit</a>
+            <Link to={`/edit?id=${this.props.id}`}>
+                <p>Edit</p>
+            </Link>
 
              <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>Delete</button>
 
