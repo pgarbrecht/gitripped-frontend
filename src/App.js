@@ -83,7 +83,6 @@ class App extends Component {
     }
 
     passExerciseData = (exerciseToEdit) => {
-        console.log('i am in pass exercisedata method', exerciseToEdit)
         this.setState({ exerciseToEdit: {
             id: exerciseToEdit.id,
             name: exerciseToEdit.name,
@@ -190,7 +189,8 @@ class App extends Component {
                     element={<EditExercise 
                         customExercises={this.state.customExercises} 
                         handleEditExercise={this.handleEditExercise} 
-                        exerciseToEdit={this.state.exerciseToEdit}/>}
+                        exerciseToEdit={this.state.exerciseToEdit}
+                        categories={this.state.categories}/>}
                 />
             </Routes>
         </Router>

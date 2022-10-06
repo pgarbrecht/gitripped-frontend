@@ -27,7 +27,10 @@ class EditExercise extends Component {
                 {/* EditExerciseForm.js component */}
                 <EditExerciseForm 
                 // editExerciseId={editExerciseId} 
-                customExercises={this.props.customExercises} handleEditExercise={this.props.handleEditExercise} exerciseToEdit={this.props.exerciseToEdit}/>
+                    customExercises={this.props.customExercises} 
+                    handleEditExercise={this.props.handleEditExercise} 
+                    exerciseToEdit={this.props.exerciseToEdit}
+                    categories={this.props.categories}/>
             </div>
         )
     }

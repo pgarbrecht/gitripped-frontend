@@ -133,6 +133,7 @@ class NewExercise extends Component {
                         onChange={this.handleChange}
                         placeholder='Muscle Group'
                         className='border rounded p-1.5 my-1'>
+                            <option value="none" selected disabled hidden>Select a Category</option>
                             <option value='Abs'>Abs</option>
                             <option value='Arms'>Arms</option>
                             <option value='Back'>Back</option>

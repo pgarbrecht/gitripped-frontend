@@ -5,8 +5,6 @@ class CustomExerciseTile extends Component {
 
     
     render(){
-        console.log('show page props', this.props)
-
         return (
             <>
             <div id="tile" className='border-black border-2 rounded-md bg-white p-2 lg:h-44 md:h-36 sm:h-32 h-32 lg:w-44 md:w-36 sm:w-32 w-32'>
