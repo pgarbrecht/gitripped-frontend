@@ -32,47 +32,52 @@ class ShowContainerCustom extends Component {
             justify-start
             items-start
             box-border
-        '>
-            <BackBtn />
+            '>
+                <BackBtn />
 
-            <h1 className='
-                text-[#FFD056] 
-                font-bold 
-                text-4xl 
-                my-8 
-                mx-8
-            '>{this.props.exerciseName}
-            </h1>
+                <h1 className='
+                    text-[#FFD056] 
+                    font-bold 
+                    text-4xl 
+                    my-8 
+                    mx-8
+                '>{this.props.exerciseName}
+                </h1>
 
-            <div className="bg-white">
-            <Link to={`/edit?id=${this.props.id}`}>
-                <p>
+                <div className="
+                    bg-white
+                    mx-8
+                    rounded
+                    p-4
+                ">
+                    {/* <Link to={`/edit?id=${this.props.id}`}>
+                        <p>
+                            <span class="material-symbols-outlined">
+                            edit_square
+                            </span>
+                        </p>
+                    </Link> */}
+
+                    {/* this is where we would use edit component instead -- but crashes page when you comment out */}
+                    <EditBtn id = {this.props.id}/>
+
+                    <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
                     <span class="material-symbols-outlined">
-                    edit_square
+                    delete
                     </span>
-                </p>
-            </Link>
+                    </button>
 
-            {/* this is where we would use edit component instead -- but crashes page when you comment out */}
-            {/* <EditBtn /> */}
-
-             <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
-            <span class="material-symbols-outlined">
-            delete
-            </span>
-            </button>
-
-                <h2>Description: {this.props.exerciseDescription}
-                </h2>
-                    {this.props.categoryArray.forEach(category => {
-                            if(category.name == this.props.category.toString()){
-                                muscle = category.name
-                            }
-                        } 
-                    )
-                    }
-                <p> Muscle Groups: {muscle}</p>
-                </div>
+                    <h2>Description: {this.props.exerciseDescription}
+                    </h2>
+                        {this.props.categoryArray.forEach(category => {
+                                if(category.name == this.props.category.toString()){
+                                    muscle = category.name
+                                }
+                            } 
+                        )
+                        }
+                    <p> Muscle Groups: {muscle}</p>
+                    </div>
             </div>
         )
     }
