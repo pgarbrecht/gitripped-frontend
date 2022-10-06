@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+// import { Navigate, useNavigate } from "react-router-dom"
 
 class EditExerciseForm extends Component {
     // need to add state to this component 
@@ -130,6 +130,8 @@ class EditExerciseForm extends Component {
                     type='submit'
                     value='Update Exercise'
                     className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
+                    // onChange={() => Navigate('/')}
+                    // https://www.delftstack.com/howto/react/onclick-redirect-react/
                 />
             </form>
             </>
