@@ -32,6 +32,7 @@ class ShowContainerCustom extends Component {
             justify-start
             items-start
             box-border
+            pb-16
             '>
                 <BackBtn />
 
@@ -44,40 +45,75 @@ class ShowContainerCustom extends Component {
                 '>{this.props.exerciseName}
                 </h1>
 
+                {/* white container */}
                 <div className="
+                    flex
+                    flex-col
+                    items-start
                     bg-white
                     mx-8
                     rounded
                     p-4
+                    w-4/5
+                    max-w-[400px]
                 ">
-                    {/* <Link to={`/edit?id=${this.props.id}`}>
-                        <p>
-                            <span class="material-symbols-outlined">
-                            edit_square
-                            </span>
-                        </p>
-                    </Link> */}
+                
+                    <div className='
+                        flex 
+                        justify-between
+                        w-full
+                    '>
 
-                    {/* this is where we would use edit component instead -- but crashes page when you comment out */}
-                    <EditBtn id = {this.props.id}/>
+                        <h2 className='
+                            font-bold
+                            text-xl
+                        '>
+                            Description: 
+                        </h2>
 
-                    <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
-                    <span class="material-symbols-outlined">
-                    delete
-                    </span>
-                    </button>
-
-                    <h2>Description: {this.props.exerciseDescription}
-                    </h2>
-                        {this.props.categoryArray.forEach(category => {
-                                if(category.name == this.props.category.toString()){
-                                    muscle = category.name
-                                }
-                            } 
-                        )
-                        }
-                    <p> Muscle Groups: {muscle}</p>
+                        {/* pass id down to edit btn component */}
+                        <EditBtn id = {this.props.id}/>
                     </div>
+
+                    {/* spacer =============================================== */}
+                    <div className='h-4'></div>
+
+                    <p>
+                        {this.props.exerciseDescription}
+                    </p>
+
+                    {/* spacer =============================================== */}
+                    <div className='h-4'></div>
+
+                    <div>
+                        <img src={this.props.exerciseImage} alt={this.props.exerciseImage}/>
+                    </div>
+                    {/* determine which muscle category */}
+                    {this.props.categoryArray.forEach(category => {
+                            if(category.name == this.props.category.toString()){
+                                muscle = category.name
+                            }
+                        } 
+                    )
+                    }
+                    <h2 className='
+                        font-bold
+                        text-xl
+                        '>
+                        Muscle Groups: 
+                    </h2>
+                    <p> {muscle}</p>
+
+
+                    {/* spacer =============================================== */}
+                    <div className='h-4'></div>
+                    <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
+                        <span class="material-symbols-outlined">
+                        delete
+                        </span>
+                    </button>
+                
+                </div>
             </div>
         )
     }
