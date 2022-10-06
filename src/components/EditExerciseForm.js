@@ -6,11 +6,11 @@ class EditExerciseForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            description: '',
-            exerciseImage: '',
-            muscles: '', 
-            notes: ''
+            name: this.props.exerciseToEdit.name,
+            description: this.props.exerciseToEdit.description,
+            exerciseImage: this.props.exerciseToEdit.exerciseImage,
+            muscles: this.props.exerciseToEdit.muscles, 
+            notes: this.props.exerciseToEdit.notes
         }
     }
 
@@ -19,7 +19,6 @@ class EditExerciseForm extends Component {
         // need to SAVE the updated changes 
         this.setState({
                 // account for all inputs
-                // ! ***************** THERE IS A BUG HERE !!! ****************
                 [e.target.id]: e.target.value
                 // e.target.defaultValue
             })
