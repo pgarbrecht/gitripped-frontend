@@ -6,17 +6,17 @@ class EditExerciseForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            description: '',
-            exerciseImage: '',
-            muscles: '', 
-            notes: ''
+            name: this.props.exerciseToEdit.name,
+            description: this.props.exerciseToEdit.description,
+            exerciseImage: this.props.exerciseToEdit.exerciseImage,
+            muscles: this.props.exerciseToEdit.muscles, 
+            notes: this.props.exerciseToEdit.notes
         }
     }
 
     handleChange = (e) => {
+        console.log(this.state)
         // need to SAVE the updated changes 
-        // would we use .setState if this page doesn't have state? 
         this.setState({
                 // account for all inputs
                 [e.target.id]: e.target.value
@@ -49,6 +49,23 @@ class EditExerciseForm extends Component {
             console.log(resJson)
         })
         .catch(err => (console.log(err)))
+    }
+
+    handleMuscleDropdown = () => {
+        let options = []
+        this.props.categories.forEach(category => {
+            // console.log(category)
+            if(category.name === this.props.exerciseToEdit.muscles) {
+                options.push(
+                    <option value={this.props.exerciseToEdit.muscles} selected>{this.props.exerciseToEdit.muscles}</option>
+                )
+            } else {
+                options.push(
+                    <option value={category.name}>{category.name}</option>                    
+                )                
+            }
+        })
+        return options
     }
 
     render () {
@@ -95,13 +112,9 @@ class EditExerciseForm extends Component {
                     onChange={this.handleChange}
                     placeholder='Muscle Group'
                     className='border rounded p-1.5 my-1'>
-                        <option value='Abs'>Abs</option>
-                        <option value='Arms'>Arms</option>
-                        <option value='Back'>Back</option>
-                        <option value='Calves'>Calves</option>
-                        <option value='Chest' selected>Chest</option>
-                        <option value='Legs'>Legs</option>
-                        <option value='Shoulders'>Shoulders</option>
+                    
+                    {this.handleMuscleDropdown()}
+
                 </select>
                 <input
                     id='notes'

@@ -30,7 +30,8 @@ class ShowCustomExercise extends Component {
                             handleDeleteExercise = {this.props.handleDeleteExercise}
                             exerciseToEdit={this.props.exerciseToEdit}
                             passExerciseData={this.props.passExerciseData}
-                            />)
+                            />
+                        )
                             
                     }
                 }        
