@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import BackBtn from './BackBtn'
 
 class ShowContainerCustom extends Component {
     constructor(props) {
@@ -30,12 +31,21 @@ class ShowContainerCustom extends Component {
             items-start
             box-border
         '>
-            {/* {`${baseURL}/${this.props.id}`} */}
+            <BackBtn />
+
             <Link to={`/edit?id=${this.props.id}`}>
-                <p>Edit</p>
+                <p>
+                    <span class="material-symbols-outlined">
+                    edit_square
+                    </span>
+                </p>
             </Link>
 
-             <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>Delete</button>
+             <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
+            <span class="material-symbols-outlined">
+            delete
+            </span>
+            </button>
 
             <h1 className='
                 text-[#FFD056] 

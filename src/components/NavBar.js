@@ -7,14 +7,18 @@ const NavBar = () => {
         <Link to='/'>
             <h1 className='text-yellow text-2xl pl-4'>GITRipped</h1>
         </Link>
-        <div className='flex justify-evenly'>
+        <div className='flex justify-center'>
         <Link to='/new'>
             {/* this will become a button later */}
-            <p className='pr-4'>Add New Exercise</p>
+            <p className='flex justify-center pt-1 pr-4'>
+                <span class="material-symbols-outlined">
+                add
+                </span>    
+            Add Custom Exercise</p>
         </Link>
-        <Link to ='/showapi'>
+        {/* <Link to ='/showapi'>
                 <p className='pr-4'>See Exercise</p>
-        </Link>
+        </Link> */}
 
         </div>
     </div>
