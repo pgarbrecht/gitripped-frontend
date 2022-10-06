@@ -7,8 +7,8 @@ class Home extends Component {
     render() {
         return (
             <div className='flex flex-col justify-center items-center bg-[#353535] w-full h-screen pt-4 pb-4'>
-                <h2 className='text-white text-2xl'>All Exercises:</h2>
-                <div id="api-tile-container" className='grid w-3/5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 h-[370px] grid-flow-row gap-1 bg-[#353535] overflow-scroll'>
+                <h2 className='text-[#FFD056] text-3xl w-3/5 grid grid-cols-1 flex justify-left'>All Exercises:</h2>
+                <div id="api-tile-container" className='grid w-3/5 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 h-[370px] grid-flow-row gap-1 bg-[#353535] overflow-scroll'>
                     {this.props.apiExercises.map((exercise, index) => {
                         return (
                             <ApiExerciseTile
@@ -22,8 +22,9 @@ class Home extends Component {
                         )
                         })}
                 </div>
-                <h2 className='text-white text-2xl'>My Exercises:</h2>
-                <div id="custom-exercise-tile" className='grid w-3/5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 h-[370px] gap-4 bg-[#353535] overflow-scroll'>
+                <div className='h-[30px]'></div>
+                <h2 className='text-[#FFD056] text-3xl w-3/5 grid grid-cols-1 flex justify-left'>My Exercises:</h2>
+                <div id="custom-exercise-tile" className='grid w-3/5 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 h-[370px] gap-4 bg-[#353535] overflow-scroll'>
                     {this.props.customExercises.map((exercise, index) => {
                         return (
                             <CustomExerciseTile 
