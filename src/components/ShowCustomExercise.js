@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import ShowContainerCustom from './ShowContainerCustom';
 
 class ShowCustomExercise extends Component {
+
+    constructor(props) {
+        super(props)
+    }
+    
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         const customExerciseId = window.location.search.slice(4);
 
         return(
@@ -18,10 +23,15 @@ class ShowCustomExercise extends Component {
                             id={customExerciseId}
                             exerciseName={exercise.name}
                             exerciseDescription = {exercise.description}
+                            exerciseImage = {exercise.exerciseImage}
                             category = {exercise.muscles}
                             categoryArray = {this.props.categories}
+                            notes = {this.props.notes}
                             handleDeleteExercise = {this.props.handleDeleteExercise}
+                            exerciseToEdit={this.props.exerciseToEdit}
+                            passExerciseData={this.props.passExerciseData}
                             />)
+                            
                     }
                 }        
             )}

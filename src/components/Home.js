@@ -34,6 +34,8 @@ class Home extends Component {
                              exerciseImage={exercise.exerciseImage}
                              muscles={exercise.muscles}
                              notes={exercise.notes}
+                             exerciseToEdit = {this.props.exerciseToEdit}
+                             passExerciseData = {this.props.passExerciseData}
                             />
                         )
                     })}
