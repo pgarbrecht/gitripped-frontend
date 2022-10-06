@@ -2,32 +2,60 @@ import React, { Component } from 'react'
 
 
 class EditExerciseForm extends Component {
+    // need to add state to this component 
     constructor(props) {
         super(props)
+        this.state = {
+            name: '',
+            description: '',
+            exerciseImage: '',
+            muscles: '', 
+            notes: ''
+        }
     }
 
     handleChange = (e) => {
-        console.log(e.target.defaultValue)
-        console.log(e.target.id)
         // need to SAVE the updated changes 
         // would we use .setState if this page doesn't have state? 
-        // this.exerciseToEdit.setState({
-        //         // account for all inputs
-        //         [e.target.id]: e.target.defaultValue
-        //     })
+        this.setState({
+                // account for all inputs
+                [e.target.id]: e.target.value
+                // e.target.defaultValue
+            })
         }
 
+    handleEditExercise = (e) => {
+        e.preventDefault()
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/${this.props.exerciseToEdit.id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                name: this.state.name,
+                description: this.state.description,
+                exerciseImage: this.state.exerciseImage,
+                muscles: this.state.muscles,
+                notes: this.state.notes
+            }),
+            headers: {
+              'Content-Type' : 'application/json'
+            }
+        })
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            } throw new Error(res)
+        })
+        .then(resJson => {
+            // this.setState({
+            console.log(resJson)
+        })
+        .catch(err => (console.log(err)))
+    }
+
     render () {
-        console.log(this.props, 'line 60 of edit')
-        // let exerciseToEdit=''
-        // console.log(this.state)
-        // const temp = {...this.props.exerciseToEdit};
-        // console.log('this is temp:', temp)
         return (
             <>
 
-               
-                <form className='
+                <form onSubmit={this.handleEditExercise} className='
                     flex 
                     flex-col 
                     w-4/5 
@@ -61,14 +89,20 @@ class EditExerciseForm extends Component {
                     placeholder='Image URL'
                     className='border rounded p-1.5 my-1'>
                 </input>
-                <input
+                <select
                     id='muscles'
                     type='text'
-                    defaultValue={this.props.exerciseToEdit.muscles}
                     onChange={this.handleChange}
                     placeholder='Muscle Group'
                     className='border rounded p-1.5 my-1'>
-                </input>
+                        <option value='Abs'>Abs</option>
+                        <option value='Arms'>Arms</option>
+                        <option value='Back'>Back</option>
+                        <option value='Calves'>Calves</option>
+                        <option value='Chest' selected>Chest</option>
+                        <option value='Legs'>Legs</option>
+                        <option value='Shoulders'>Shoulders</option>
+                </select>
                 <input
                     id='notes'
                     type='text'
@@ -81,7 +115,7 @@ class EditExerciseForm extends Component {
                 {/* submit button */}
                 <input
                     type='submit'
-                    defaultValue='Update Exercise'
+                    value='Update Exercise'
                     className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
                 />
             </form>
