@@ -7,7 +7,6 @@ class ShowContainerAPI extends Component {
         // console.log("queryString", queryString);
         return (
             <div>
-               
                 {/* {console.log('test 9')} */}
                 <h1>{this.props.exerciseName}
                 {/* {console.log(this.props.exerciseName, 'line 11, showcontainerapi')} */}

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ShowContainerAPI from './ShowContainerAPI';
+import BackBtn from './BackBtn';
 
 class ShowAPIExercise extends Component {
     render() {
         const apiExerciseId = parseInt(window.location.search.slice(4));
     return(
         <div>
+        <BackBtn />
+        
         {this.props.apiExercises.map((exercise, index) => {
         return(
             <ShowContainerAPI

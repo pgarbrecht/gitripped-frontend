@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import ShowAPIExercise from './components/ShowAPIExercise';
 import ShowCustomExercise from './components/ShowCustomExercise'
 import EditExercise from './components/EditExercise';
+import EditBtn from './components/EditBtn';
 
 import {
   BrowserRouter as Router,
@@ -191,6 +192,14 @@ class App extends Component {
                         handleEditExercise={this.handleEditExercise} 
                         exerciseToEdit={this.state.exerciseToEdit}
                         categories={this.state.categories}/>}
+                />
+                <Route
+                    element={<EditBtn 
+                      customExercises={this.state.customExercises} 
+                      categories={this.state.categories} 
+                      handleDeleteExercise={this.handleDeleteExercise} 
+                      exerciseToEdit={this.state.exerciseToEdit}
+                      passExerciseData={this.passExerciseData}/>}
                 />
             </Routes>
         </Router>

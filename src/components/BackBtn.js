@@ -6,8 +6,8 @@ const BackBtn = () => {
   return (
     <Link 
         to='/' 
-        className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer mx-8 mt-8'>
-        <div className='flex items-center justify-center'>
+        className=''>
+        <div className='flex items-center justify-left bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer mx-8 mt-8 w-40'>
             <img src={LeftArrow} alt='arrow icon'/>
             <p className='pr-2'>Back to Home</p>
         </div>
