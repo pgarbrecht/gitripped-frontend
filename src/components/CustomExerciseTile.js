@@ -17,7 +17,7 @@ class CustomExerciseTile extends Component {
                 // exercisetoshow={this.props.name}
                 // exerciseid={this.props.id}
                 >
-                <p className='pr-4'>View More</p>
+                <p className='pr-4 underline'>View More</p>
             </Link>
             </div>
             </>

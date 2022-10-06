@@ -24,7 +24,7 @@ class ApiExerciseTile extends Component {
                 // exercisetoshow={this.props.exercise}
                 // exerciseid={this.props.id}
                 >
-                <p className='pr-4'>View More</p>
+                <p className='pr-4 underline'>View More</p>
                 </Link>
             </div>
         )
