@@ -4,16 +4,12 @@ import AddExerciseBtn from './AddExerciseBtn'
 
 const NavBar = () => {
     return(
-    <div className='flex justify-between items-center bg-[#353535] '>
+    <div className='flex justify-between items-center bg-[#353535] p-8'>
         <Link to='/'>
-            <h1 className='text-[#FFD056] font-bold text-4xl  pl-4'>GITRipped</h1>
+            <h1 className='text-[#FFD056] font-bold text-3xl sm:text-4xl  '>GITRipped</h1>
         </Link>
         <div className='flex justify-center'>
-        <AddExerciseBtn />
-        {/* <Link to ='/showapi'>
-                <p className='pr-4'>See Exercise</p>
-        </Link> */}
-
+            <AddExerciseBtn />
         </div>
     </div>
     )

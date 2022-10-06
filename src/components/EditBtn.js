@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
-
-const EditBtn = () => {
-  return (
-    <Link to={`/edit?id=${this.props.id}`}>
-        <p>
-            <span class="material-symbols-outlined">
-            edit_square
-            </span>
-        </p>
-    </Link>
-  )
+class EditBtn extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render () {
+        console.log(this.props.id, 'im in edit btn')
+        return (
+            <Link to={`/edit?id=${this.props.id}`}>
+                <p>
+                    <span class="material-symbols-outlined">
+                    edit_square
+                    </span>
+                </p>
+            </Link>
+        )
+    }
 }
 
 export default EditBtn
