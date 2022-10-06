@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 class ShowContainerAPI extends Component {
+    constructor(props) {
+        super(props)
+    }
     render(){
         let muscle = ''
         // const queryString = window.location.search.slice(4);

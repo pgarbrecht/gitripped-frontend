@@ -95,6 +95,17 @@ class App extends Component {
         })
     }
 
+    passApiData = (apiExerciseToShow) => {
+        this.setState({ apiExerciseToShow: {
+         id: apiExerciseToShow.id,
+         name: apiExerciseToShow.name,
+         description: apiExerciseToShow.description,
+         exerciseImage: apiExerciseToShow.exerciseImage,
+         muscles: apiExerciseToShow.muscles,
+         notes: apiExerciseToShow.notes
+        }})
+    }
+
     handleDeleteExercise = (id) => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
         method: 'DELETE'
@@ -170,7 +181,9 @@ class App extends Component {
                     path='/showapi' 
                     element={<ShowAPIExercise 
                         apiExercises={this.state.exercises} 
-                        categories={this.state.categories}/>}
+                        categories={this.state.categories}
+                        passApiData={this.passApiData}
+                        />}
                 />
                 <Route 
                     path='/showcustom'
