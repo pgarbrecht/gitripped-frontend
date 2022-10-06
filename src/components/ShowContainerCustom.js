@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import BackBtn from './BackBtn'
+// importing edit component here
+import EditBtn from './EditBtn'
 
 class ShowContainerCustom extends Component {
     constructor(props) {
@@ -33,20 +35,6 @@ class ShowContainerCustom extends Component {
         '>
             <BackBtn />
 
-            <Link to={`/edit?id=${this.props.id}`}>
-                <p>
-                    <span class="material-symbols-outlined">
-                    edit_square
-                    </span>
-                </p>
-            </Link>
-
-             <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
-            <span class="material-symbols-outlined">
-            delete
-            </span>
-            </button>
-
             <h1 className='
                 text-[#FFD056] 
                 font-bold 
@@ -56,7 +44,24 @@ class ShowContainerCustom extends Component {
             '>{this.props.exerciseName}
             </h1>
 
-            <div>
+            <div className="bg-white">
+            <Link to={`/edit?id=${this.props.id}`}>
+                <p>
+                    <span class="material-symbols-outlined">
+                    edit_square
+                    </span>
+                </p>
+            </Link>
+
+            {/* this is where we would use edit component instead -- but crashes page when you comment out */}
+            {/* <EditBtn /> */}
+
+             <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
+            <span class="material-symbols-outlined">
+            delete
+            </span>
+            </button>
+
                 <h2>Description: {this.props.exerciseDescription}
                 </h2>
                     {this.props.categoryArray.forEach(category => {
