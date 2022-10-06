@@ -33,7 +33,16 @@ class App extends Component {
               limit: "5",
               searchUrl: "",
               exercises: [],
-              categories: []
+              categories: [],
+            // intitialize empty object
+              exerciseToEdit: {
+                id: '',
+                name: '',
+                description: '',
+                exerciseImage: '',
+                muscles: '',
+                notes: '',
+              }
         };
 	}
 
@@ -67,87 +76,122 @@ class App extends Component {
         })
     }
 
-    // Christina's notes:
-    // handleEditExercise method here 
-    // when clicked, need to get id of exercise 
-    // pass that as a prop into /edit route 
-    handleEditExercise = () => {
+    handleEditExercise = (e, exercise) => {
+        e.preventDefault()
+        // console.log('hitting handleEditExercise in App.js!')
+        // console.log(exercise)
     }
-    
+
+    passExerciseData = (exerciseToEdit) => {
+        console.log('i am in pass exercisedata method', exerciseToEdit)
+        this.setState({ exerciseToEdit: {
+            id: exerciseToEdit.id,
+            name: exerciseToEdit.name,
+            description: exerciseToEdit.description,
+            exerciseImage: exerciseToEdit.exerciseImage,
+            muscles: exerciseToEdit.muscles,
+            notes: exerciseToEdit.notes,
+        }
+        })
+    }
+
     handleDeleteExercise = (id) => {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
         method: 'DELETE'
-      }).then( response => {
+        }).then( response => {
         const findIndex = this.state.customExercises.findIndex(exercise => exercise._id === id)
         const copyCustomExercises = [...this.state.customExercises]
         copyCustomExercises.splice(findIndex, 1)
         this.setState({customExercises: copyCustomExercises})
         console.log('got to bottom of handle delete');
-      })
+        })
     }
 
     //API EXERCISES HANDLERS
-  getSearchUrl = () => {
-      this.setState({
-          searchUrl: this.state.baseUrl + this.state.limit
-          // searchUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=5'
-      }, () => (
-      fetch(this.state.searchUrl)
-      .then(response => { return response.json() })
-      .then(json => {
-          const exercisesToAdd = []
-          json.results.forEach((exercise) => {
-              exercisesToAdd.push(exercise)
-          }) 
-          this.setState({
-              exercises: exercisesToAdd
-          })
-      }  //add new key to state and store array of exercises
-      ), (err) => console.log(err)
-      ))
-  }
+    getSearchUrl = () => {
+        this.setState({
+            searchUrl: this.state.baseUrl + this.state.limit
+            // searchUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=5'
+        }, () => (
+        fetch(this.state.searchUrl)
+        .then(response => { return response.json() })
+        .then(json => {
+            const exercisesToAdd = []
+            json.results.forEach((exercise) => {
+                exercisesToAdd.push(exercise)
+            }) 
+            this.setState({
+                exercises: exercisesToAdd
+            })
+        }  //add new key to state and store array of exercises
+        ), (err) => console.log(err)
+        ))
+    }
 
-  getMuscleCategories = () => (
-      fetch('https://wger.de/api/v2/exercisecategory/?format=json')
-      .then(response => { return response.json() })
-      .then(json => {
-          const categoriesToAdd = []
-          json.results.forEach((category) => {
-              categoriesToAdd.push(category)
-          }) 
-          this.setState({
-              categories: categoriesToAdd
-          })
-      }  //add new key to state and store array of categories
-      ), (err) => console.log(err)
-  )
+    getMuscleCategories = () => (
+        fetch('https://wger.de/api/v2/exercisecategory/?format=json')
+        .then(response => { return response.json() })
+        .then(json => {
+            const categoriesToAdd = []
+            json.results.forEach((category) => {
+                categoriesToAdd.push(category)
+            }) 
+            this.setState({
+                categories: categoriesToAdd
+            })
+        }  //add new key to state and store array of categories
+        ), (err) => console.log(err)
+    )
 
   //run these methods when components mount
-  componentDidMount() {
+    componentDidMount() {
 		this.getExercises();
-    this.getSearchUrl();
-    this.getMuscleCategories();
+        this.getSearchUrl();
+        this.getMuscleCategories();
     }
 
     render() {
         
         return (
         
-          <Router>
+        <Router>
             <NavBar />
             <Routes>
-              <Route path='/'element={<Home customExercises={this.state.customExercises} apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
-
-              <Route path='/showapi' element={<ShowAPIExercise apiExercises={this.state.exercises} categories={this.state.categories}/>}/>
-
-              <Route path='/showcustom'element=
-              {<ShowCustomExercise
-              customExercises={this.state.customExercises} categories={this.state.categories} handleDeleteExercise={this.handleDeleteExercise} />}/>
-
-              <Route path='/new'element={<NewExercise/>}/>
-              <Route path='/edit'element={<EditExercise customExercises={this.state.customExercises}/>}/>
+                <Route 
+                    path='/'
+                    element={<Home 
+                        customExercises={this.state.customExercises} 
+                        apiExercises={this.state.exercises} 
+                        categories={this.state.categories}/>}
+                />
+                <Route 
+                    path='/showapi' 
+                    element={<ShowAPIExercise 
+                        apiExercises={this.state.exercises} 
+                        categories={this.state.categories}/>}
+                />
+                <Route 
+                    path='/showcustom'
+                    element={<ShowCustomExercise
+                        customExercises={this.state.customExercises} 
+                        categories={this.state.categories} 
+                        handleDeleteExercise={this.handleDeleteExercise} 
+                        exerciseToEdit={this.state.exerciseToEdit}
+                        passExerciseData={this.passExerciseData}/>}
+                />
+                <Route 
+                    path='/new'
+                    element={<NewExercise/>}
+                />
+                <Route 
+                    path='/edit'
+                    element={<EditExercise 
+                        customExercises={this.state.customExercises} 
+                        handleEditExercise={this.handleEditExercise} 
+                        exerciseToEdit={this.state.exerciseToEdit}/>}
+                />
             </Routes>
-          </Router>
+        </Router>
         );
     }
 }

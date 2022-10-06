@@ -51,12 +51,6 @@ class NewExercise extends Component {
         })
 
         .then (resJson => {
-            // see what data we're getting back
-            // console.log('New Exercise Form: ', resJson)
-
-            // call the handleAddExercise method created in app.js
-            // resJson is also what we're passing in as exercise in app.js
-            // this.props.handleAddExercise(resJson)
 
             this.setState({
                 // set the input fields back to empty string
@@ -95,7 +89,6 @@ class NewExercise extends Component {
                     Add Custom Exercise
                 </h1>
 
-                {/* moving <form> to NewExerciseForm.js?? would require lots of refactoring and using props to pass data back up */}
                 <form 
                     onSubmit={this.handleSubmit} 
                     className='
