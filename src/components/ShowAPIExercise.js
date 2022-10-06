@@ -4,6 +4,9 @@ import ShowContainerAPI from './ShowContainerAPI';
 import BackBtn from './BackBtn';
 
 class ShowAPIExercise extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         const apiExerciseId = parseInt(window.location.search.slice(4));
     return(
