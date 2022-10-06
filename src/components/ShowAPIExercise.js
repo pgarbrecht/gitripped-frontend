@@ -21,8 +21,10 @@ class ShowAPIExercise extends Component {
             id={apiExerciseId}
             exerciseName = {exercise.name}
             exerciseDescription = {exercise.description}
-            category = {exercise.category}
+            exerciseImage = {exercise.exerciseImage}
+            category = {exercise.muscles}
             categoryArray = {this.props.categories}
+            passApiData={this.props.passApiData}
             />)}
         )}
         </div>
