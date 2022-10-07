@@ -51,7 +51,7 @@ class CustomExerciseTile extends Component {
                 {/* lg:h-44 md:h-36 sm:h-32 h-32 lg:w-44 md:w-36 sm:w-32 */}
                 <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden'>
 
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between items-start'>
                     <div className='flex flex-col'>
                          <p className='font-bold'>{this.props.name}</p>
                          <p className='italic text-sm'>{this.props.muscles}</p>

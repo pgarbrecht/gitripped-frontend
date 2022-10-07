@@ -71,11 +71,10 @@ class ApiExerciseTile extends Component {
                         }
                 <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden'>
 
-                    <div className='flex justify-between items-center'>
-                        <div className='flex flex-col'>
-                            <p className='md:whitespace-normal truncate font-bold'>{this.props.exerciseName}</p>
-                            <p>{muscle}</p>
-
+                    <div className='flex justify-between items-start w-full'>
+                        <div className='flex flex-col w-full'>
+                            <p className='font-bold'>{this.props.exerciseName}</p>
+                            <p className='italic'>{muscle}</p>
                         </div>
                         
                         {/* display muscle icon */}
@@ -84,6 +83,7 @@ class ApiExerciseTile extends Component {
                         </div>
                     </div>
                     
+                    <div className='my-4'></div>
                     <p className='truncate text-sm' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
                     {/* <p><a href={`/showapi/${this.props.id}`} className='underline'>View More</a></p> */}
                     
