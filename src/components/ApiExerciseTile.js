@@ -8,7 +8,7 @@ class ApiExerciseTile extends Component {
         
             <div id="tile" className='border-black border-2 rounded-md bg-white p-2 lg:h-44 md:h-36 sm:h-32 h-32 lg:w-44 md:w-36 sm:w-32 w-32 overflow-hidden'>
 
-                <p className='font-bold'>{this.props.exerciseName}</p>
+                <p className='md:whitespace-normal truncate font-bold'>{this.props.exerciseName}</p>
                 {
                     this.props.categoryArray.forEach(
                         category => {
