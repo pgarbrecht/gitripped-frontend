@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import BackBtn from './BackBtn'
 // importing edit component here
 import EditBtn from './EditBtn'
 
@@ -35,8 +34,6 @@ class ShowContainerCustom extends Component {
             pb-16
             '>
                 <div className='w-full max-w-[1000px]'>
-
-                    <BackBtn />
 
                     <h1 className='
                         text-[#FFD056] 

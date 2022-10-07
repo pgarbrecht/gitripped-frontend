@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ShowContainerCustom from './ShowContainerCustom';
-
+import BackBtn from './BackBtn';
 class ShowCustomExercise extends Component {
 
     constructor(props) {
@@ -12,7 +12,22 @@ class ShowCustomExercise extends Component {
         const customExerciseId = window.location.search.slice(4);
 
         return(
-            <div>
+            <div className='bg-[#353535] min-h-screen'>
+                <div className='
+                    
+                    flex
+                    flex-col
+                    items-center
+                    
+                '> 
+                    <div className='
+                    w-full max-w-[1000px]
+                    '>
+                        <BackBtn/>
+                    </div>
+                    
+                </div>
+                
                 {this.props.customExercises.map((exercise, index) => {
                     // console.log(exercise.category, 'line 9 of showcustomexercise')
                     // console.log(this.props.customExercises, 'line 10 of customExercises')
