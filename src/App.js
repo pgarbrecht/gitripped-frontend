@@ -36,6 +36,7 @@ class App extends Component {
               searchUrl: "",
               exercises: [],
               categories: [],
+              apiExerciseImages: [],
             // intitialize empty object
               exerciseToEdit: {
                 id: '',
@@ -144,16 +145,33 @@ class App extends Component {
         ), (err) => console.log(err)
     )
 
+    getApiExerciseImages = () => (
+      fetch('https://wger.de/api/v2/exerciseimage/?format=json&limit=200')
+      .then(response => { return response.json() })
+      .then(json => {
+          const apiExerciseImagesToAdd = []
+          json.results.forEach((image) => {
+            apiExerciseImagesToAdd.push(image)
+          }) 
+          this.setState({
+            apiExerciseImages: apiExerciseImagesToAdd
+          })
+      }  //add new key to state and store array of api exercise images
+      ), (err) => console.log(err)
+  )
+
   //run these methods when components mount
     componentDidMount() {
 		this.getExercises();
         this.getSearchUrl();
         this.getMuscleCategories();
+        this.getApiExerciseImages();
     }
 
     render() {
-        
+      console.log('api exercise images:', this.state.apiExerciseImages);        
         return (
+          
         <Router>
             <NavBar />
             <Routes>
@@ -170,6 +188,7 @@ class App extends Component {
                     path='/showapi' 
                     element={<ShowAPIExercise 
                         apiExercises={this.state.exercises} 
+                        apiExerciseImages={this.state.apiExerciseImages}
                         categories={this.state.categories}/>}
                 />
                 <Route 
