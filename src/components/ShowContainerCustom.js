@@ -30,89 +30,95 @@ class ShowContainerCustom extends Component {
             flex
             flex-col
             justify-start
-            items-start
+            items-center
             box-border
             pb-16
             '>
-                <BackBtn />
+                <div className='w-full max-w-[1000px]'>
 
-                <h1 className='
-                    text-[#FFD056] 
-                    font-bold 
-                    text-4xl 
-                    my-8 
-                    mx-8
-                '>{this.props.exerciseName}
-                </h1>
+                    <BackBtn />
 
-                {/* white container */}
-                <div className="
-                    flex
-                    flex-col
-                    items-start
-                    bg-white
-                    mx-8
-                    rounded
-                    p-4
-                    w-4/5
-                    max-w-[400px]
-                ">
-                
-                    <div className='
-                        flex 
-                        justify-between
-                        w-full
-                    '>
+                    <h1 className='
+                        text-[#FFD056] 
+                        font-bold 
+                        text-4xl 
+                        my-8 
+                        mx-8
+                        '>{this.props.exerciseName}
+                    </h1>
 
+                    {/* white container */}
+                    <div className="
+                        flex
+                        flex-col
+                        items-start
+                        bg-white
+                        mx-8
+                        rounded
+                        p-4
+                        w-4/5
+                        max-w-[400px]
+                        ">
+                    
+                        <div className='
+                            flex 
+                            justify-between
+                            w-full
+                            '>
+
+                            <h2 className='
+                                font-bold
+                                text-xl
+                                '>
+                                Description: 
+                            </h2>
+
+                            {/* pass id down to edit btn component */}
+                            <EditBtn id = {this.props.id}/>
+                        </div>
+
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+
+                        <p>
+                            {this.props.exerciseDescription}
+                        </p>
+
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+
+                        <div>
+                            <img src={this.props.exerciseImage} alt={this.props.exerciseImage}/>
+                        </div>
+                        {/* determine which muscle category */}
+                        {this.props.categoryArray.forEach(category => {
+                            if(category.name == this.props.category.toString()){
+                                muscle = category.name
+                            }})
+                        }
+
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+                        
                         <h2 className='
                             font-bold
                             text-xl
-                        '>
-                            Description: 
+                            '>
+                            Muscle Groups: 
                         </h2>
+                        <p> {muscle}</p>
 
-                        {/* pass id down to edit btn component */}
-                        <EditBtn id = {this.props.id}/>
+
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+                        <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
+                            <span className="material-symbols-outlined">
+                            delete
+                            </span>
+                        </button>
+                    
                     </div>
 
-                    {/* spacer =============================================== */}
-                    <div className='h-4'></div>
-
-                    <p>
-                        {this.props.exerciseDescription}
-                    </p>
-
-                    {/* spacer =============================================== */}
-                    <div className='h-4'></div>
-
-                    <div>
-                        <img src={this.props.exerciseImage} alt={this.props.exerciseImage}/>
-                    </div>
-                    {/* determine which muscle category */}
-                    {this.props.categoryArray.forEach(category => {
-                            if(category.name == this.props.category.toString()){
-                                muscle = category.name
-                            }
-                        } 
-                    )
-                    }
-                    <h2 className='
-                        font-bold
-                        text-xl
-                        '>
-                        Muscle Groups: 
-                    </h2>
-                    <p> {muscle}</p>
-
-
-                    {/* spacer =============================================== */}
-                    <div className='h-4'></div>
-                    <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
-                        <span class="material-symbols-outlined">
-                        delete
-                        </span>
-                    </button>
-                
                 </div>
             </div>
         )

@@ -12,7 +12,7 @@ class CustomExerciseTile extends Component {
 
             <p className='font-bold'>{this.props.name}</p>
             <p>{this.props.muscles}</p>
-            <p className='truncate'>{this.props.description}</p>
+            <p className='truncate text-sm'>{this.props.description}</p>
             {/* <p><a href='/exercises/' className='underline'>View More</a></p> */}
 
             <Link to ={`/showcustom?id=${this.props.id}`}
@@ -20,7 +20,7 @@ class CustomExerciseTile extends Component {
                 // exerciseid={this.props.id}
                 >
 
-            <p className='pr-4 underline text-[#616161]'>View More</p>
+            <p className='pr-4 underline text-[#616161] text-sm'>View More</p>
 
             </Link>
             </div>

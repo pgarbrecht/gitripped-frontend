@@ -5,8 +5,8 @@ class EditBtn extends Component {
     constructor(props) {
         super(props)
     }
+    
     render () {
-        console.log(this.props.id, 'im in edit btn')
         return (
             <Link to={`/edit?id=${this.props.id}`}>
                 <p>

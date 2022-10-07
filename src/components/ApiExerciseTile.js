@@ -20,14 +20,14 @@ class ApiExerciseTile extends Component {
                     )
                 }
                 <p>{muscle}</p>
-                <p className='truncate' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
+                <p className='truncate text-sm' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
                 {/* <p><a href={`/showapi/${this.props.id}`} className='underline'>View More</a></p> */}
                 <Link to ={`/showapi?id=${this.props.id}`} 
                 // exercisetoshow={this.props.exercise}
                 // exerciseid={this.props.id}
                 >
 
-                <p className='pr-4 underline text-[#616161]'>View More</p>
+                <p className='pr-4 underline text-[#616161] text-sm'>View More</p>
 
                 </Link>
             </div>

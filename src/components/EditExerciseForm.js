@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Navigate, useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 class EditExerciseForm extends Component {
     // need to add state to this component 
@@ -48,7 +48,7 @@ class EditExerciseForm extends Component {
             // this.setState({
             console.log(resJson)
         })
-        .catch(err => (console.log(err)))
+        .catch(err => (console.log(err))) 
     }
 
     handleMuscleDropdown = () => {
@@ -71,7 +71,6 @@ class EditExerciseForm extends Component {
     render () {
         return (
             <>
-
                 <form onSubmit={this.handleEditExercise} className='
                     flex 
                     flex-col 
