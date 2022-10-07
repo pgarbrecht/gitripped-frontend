@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import BackBtn from './BackBtn'
+import {Routes, Route, useNavigate} from 'react-router-dom';
+import RedirectHome from '../index.js';
+import { Link } from "react-router-dom";
 
 class NewExercise extends Component {
     // need to add state to this component 
@@ -10,7 +13,7 @@ class NewExercise extends Component {
             description: '',
             exerciseImage: '',
             muscles: '', // convert to drop down
-            notes: ''
+            notes: '',
         }
     }
 
@@ -27,7 +30,7 @@ class NewExercise extends Component {
     // handleSubmit method
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state) 
+        // RedirectHome()
         fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
             method: 'POST',
             headers: {
@@ -63,9 +66,16 @@ class NewExercise extends Component {
         })
         .catch(err => (console.log(err)))
     }
+    // redirectHome() {
+    //     const navigate = useNavigate();
+      
+    //     const navigateHome = () => {
+    //       // 👇️ navigate to /
+    //       navigate('/');
+    //     };
+    // }
 
     render() {
-        // console.log(this.state)
         return (
             <div className='
                 bg-[#353535]
@@ -152,11 +162,13 @@ class NewExercise extends Component {
                     </input>
 
                     {/* submit button */}
-                    <input 
-                        type='submit'
-                        value='Add New Exercise'
-                        className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
-                    />
+       
+                        <input 
+                            type='submit'
+                            value='Add New Exercise'
+                            className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
+                        />
+                
                 </form>
             
             </div>
