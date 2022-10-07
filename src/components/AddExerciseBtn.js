@@ -6,7 +6,7 @@ const AddExerciseBtn = () => {
     <Link to='/new'>
 
         <div className='flex items-center pr-2 bg-[#ABC8CA] p-2 m-2 rounded cursor-pointe text-sm sm:text-base'> 
-            <div class="material-symbols-outlined">add</div>
+            <div className="material-symbols-outlined">add</div>
 
             <p className='hidden sm:flex'>
                 New Exercise</p>
