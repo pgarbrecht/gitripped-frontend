@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import ShowContainerAPI from './ShowContainerAPI';
-import BackBtn from './BackBtn';
 
 class ShowAPIExercise extends Component {
     constructor(props) {
@@ -11,19 +10,20 @@ class ShowAPIExercise extends Component {
         const apiExerciseId = parseInt(window.location.search.slice(4));
     return(
         <div>
-        <BackBtn />
-        
         {this.props.apiExercises.map((exercise, index) => {
-        return(
-            <ShowContainerAPI
-            // key={exercise.id}
-            key={index}
-            id={apiExerciseId}
-            exerciseName = {exercise.name}
-            exerciseDescription = {exercise.description}
-            category = {exercise.category}
-            categoryArray = {this.props.categories}
-            />)}
+        if(exercise.id === apiExerciseId){
+            return(
+                <ShowContainerAPI
+                // key={exercise.id}
+                key={index}
+                id={apiExerciseId}
+                exerciseName = {exercise.name}
+                exerciseDescription = {exercise.description}
+                category = {exercise.category}
+                categoryArray = {this.props.categories}
+                // apiExercises = {this.props.apiExercises}
+                />)}
+        }
         )}
         </div>
         )
