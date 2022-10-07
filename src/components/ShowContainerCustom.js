@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // importing edit component here
 import EditBtn from './EditBtn'
+import {Navigate} from "react-router-dom"
 
 class ShowContainerCustom extends Component {
     constructor(props) {
@@ -104,15 +105,31 @@ class ShowContainerCustom extends Component {
                         </h2>
                         <p> {muscle}</p>
 
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+
+                        <h2 className='
+                            font-bold
+                            text-xl
+                            '>
+                            Notes: 
+                        </h2>
+                        <p> {this.props.notes}</p>
 
                         {/* spacer =============================================== */}
                         <div className='h-4'></div>
-                        <button onClick={()=>this.props.handleDeleteExercise(this.props.id)}>
+                        <div>
+                        
+                        <button onClick={()=> {
+                            this.props.handleDeleteExercise(this.props.id);
+                            {<Navigate to="/" replace={true} />}
+                            }}
+                            >
                             <span className="material-symbols-outlined">
                             delete
                             </span>
                         </button>
-                    
+                        </div>
                     </div>
 
                 </div>

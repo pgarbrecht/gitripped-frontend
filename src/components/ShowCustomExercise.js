@@ -41,7 +41,7 @@ class ShowCustomExercise extends Component {
                             exerciseImage = {exercise.exerciseImage}
                             category = {exercise.muscles}
                             categoryArray = {this.props.categories}
-                            notes = {this.props.notes}
+                            notes = {exercise.notes}
                             handleDeleteExercise = {this.props.handleDeleteExercise}
                             exerciseToEdit={this.props.exerciseToEdit}
                             passExerciseData={this.props.passExerciseData}
