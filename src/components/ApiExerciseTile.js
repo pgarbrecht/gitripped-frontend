@@ -57,15 +57,7 @@ class ApiExerciseTile extends Component {
     }
         return (
             <div className='flex flex-col relative'>
-                <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden'>
-
-                    <div className='flex justify-between items-center'>
-                        <div className='flex flex-col'>
-                            <p className='md:whitespace-normal truncate font-bold'>{this.props.exerciseName}</p>
-                            <p>{muscle}</p>
-
-                        </div>
-                        {
+                {
                             this.props.categoryArray.forEach(
                                 category => {
                                     if(category.id.toString() === this.props.category.toString()) {
@@ -77,6 +69,15 @@ class ApiExerciseTile extends Component {
                                 } 
                             )
                         }
+                <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden'>
+
+                    <div className='flex justify-between items-center'>
+                        <div className='flex flex-col'>
+                            <p className='md:whitespace-normal truncate font-bold'>{this.props.exerciseName}</p>
+                            <p>{muscle}</p>
+
+                        </div>
+                        
                         {/* display muscle icon */}
                         <div className='flex items-center justify-center'> 
                             {getMuscleIcon(muscle)}
