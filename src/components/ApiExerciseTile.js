@@ -5,8 +5,9 @@ class ApiExerciseTile extends Component {
     render(){
         let muscle = ''
         return (
-        
-            <div id="tile" className='border-black border-2 rounded-md bg-white p-2 lg:h-44 md:h-36 sm:h-32 h-32 lg:w-44 md:w-36 sm:w-32 w-32 overflow-hidden'>
+        // thoughts on keeping tile size the same?
+        // lg:h-44 md:h-36 sm:h-32 h-32 lg:w-44 md:w-36 sm:w-32
+            <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden relative'>
 
                 <p className='md:whitespace-normal truncate font-bold'>{this.props.exerciseName}</p>
                 {
@@ -15,6 +16,7 @@ class ApiExerciseTile extends Component {
                             if(category.id.toString() === this.props.category.toString()) {
                                 // console.log(category.name)
                                 muscle = category.name
+                                
                             }
                         } 
                     )
@@ -27,7 +29,7 @@ class ApiExerciseTile extends Component {
                 // exerciseid={this.props.id}
                 >
 
-                <p className='pr-4 underline text-[#616161] text-sm'>View More</p>
+                <p className='pr-4 underline text-[#616161] text-sm absolute bottom-2'>View More</p>
 
                 </Link>
             </div>

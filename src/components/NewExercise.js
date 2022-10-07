@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import BackBtn from './BackBtn'
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import RedirectHome from '../index.js';
-import { Link } from "react-router-dom";
 
 class NewExercise extends Component {
     // need to add state to this component 
@@ -83,94 +80,96 @@ class NewExercise extends Component {
                 flex
                 flex-col
                 justify-start
-                items-start
+                items-center
                 box-border
             '>
                 {/* PAGE CONTENT BELOW THIS ============================================================ */}
-                <BackBtn />
+                <div className='w-full max-w-[1000px]'>
 
-                <h1 className='
-                    text-[#FFD056] 
-                    font-bold 
-                    text-4xl 
-                    my-8 
-                    mx-8
-                '>
-                    Add Custom Exercise
-                </h1>
+                    <BackBtn />
 
-                <form 
-                    onSubmit={this.handleSubmit} 
-                    className='
-                        flex 
-                        flex-col 
-                        w-4/5 
-                        p-4 
-                        max-w-[400px] 
-                        bg-[#ffffff] 
-                        rounded 
+                    <h1 className='
+                        text-[#FFD056] 
+                        font-bold 
+                        text-4xl 
+                        my-8 
                         mx-8
                     '>
-                    {/* id = has to match key in this.state*/}
-                    <input
-                        id='name'
-                        type='text'
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                        placeholder='Exercise Name'
-                        className='border rounded p-1.5 my-1'>
-                    </input>
-                    <input
-                        id='description'
-                        type='text'
-                        value={this.state.description}
-                        onChange={this.handleChange}
-                        placeholder='Description'
-                        className='border rounded p-1.5 my-1'>
-                    </input> 
-                    <input
-                        id='exerciseImage'
-                        type='text'
-                        value={this.state.exerciseImage}
-                        onChange={this.handleChange}
-                        placeholder='Image URL'
-                        className='border rounded p-1.5 my-1'>
-                    </input>
-                    <select
-                        id='muscles'
-                        type='text'
-                        // value={this.state.muscles}
-                        onChange={this.handleChange}
-                        placeholder='Muscle Group'
-                        className='border rounded p-1.5 my-1'>
-                            <option value="none" selected disabled hidden>Select a Category</option>
-                            <option value='Abs'>Abs</option>
-                            <option value='Arms'>Arms</option>
-                            <option value='Back'>Back</option>
-                            <option value='Calves'>Calves</option>
-                            <option value='Chest'>Chest</option>
-                            <option value='Legs'>Legs</option>
-                            <option value='Shoulders'>Shoulders</option>
-                    </select>
-                    <input
-                        id='notes'
-                        type='text'
-                        value={this.state.notes}
-                        onChange={this.handleChange}
-                        placeholder='Notes'
-                        className='border rounded p-1.5 my-1'>
-                    </input>
+                        Add Custom Exercise
+                    </h1>
 
-                    {/* submit button */}
-       
-                        <input 
-                            type='submit'
-                            value='Add New Exercise'
-                            className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
-                        />
-                
-                </form>
-            
+                    <form 
+                        onSubmit={this.handleSubmit} 
+                        className='
+                            flex 
+                            flex-col 
+                            w-4/5 
+                            p-4 
+                            max-w-[400px] 
+                            bg-[#ffffff] 
+                            rounded 
+                            mx-8
+                        '>
+                        {/* id = has to match key in this.state*/}
+                        <input
+                            id='name'
+                            type='text'
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                            placeholder='Exercise Name'
+                            className='border rounded p-1.5 my-1'>
+                        </input>
+                        <input
+                            id='description'
+                            type='text'
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                            placeholder='Description'
+                            className='border rounded p-1.5 my-1'>
+                        </input> 
+                        <input
+                            id='exerciseImage'
+                            type='text'
+                            value={this.state.exerciseImage}
+                            onChange={this.handleChange}
+                            placeholder='Image URL'
+                            className='border rounded p-1.5 my-1'>
+                        </input>
+                        <select
+                            id='muscles'
+                            type='text'
+                            // value={this.state.muscles}
+                            onChange={this.handleChange}
+                            placeholder='Muscle Group'
+                            className='border rounded p-1.5 my-1'>
+                                <option value="none" selected disabled hidden>Select a Category</option>
+                                <option value='Abs'>Abs</option>
+                                <option value='Arms'>Arms</option>
+                                <option value='Back'>Back</option>
+                                <option value='Calves'>Calves</option>
+                                <option value='Chest'>Chest</option>
+                                <option value='Legs'>Legs</option>
+                                <option value='Shoulders'>Shoulders</option>
+                        </select>
+                        <input
+                            id='notes'
+                            type='text'
+                            value={this.state.notes}
+                            onChange={this.handleChange}
+                            placeholder='Notes'
+                            className='border rounded p-1.5 my-1'>
+                        </input>
+
+                        {/* submit button */}
+        
+                            <input 
+                                type='submit'
+                                value='Add New Exercise'
+                                className='bg-[#ABC8CA] p-2 m-2 rounded cursor-pointer'
+                            />
+                    
+                    </form>
+                </div>
             </div>
         )
     }

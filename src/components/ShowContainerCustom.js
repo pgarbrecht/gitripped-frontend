@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 // importing edit component here
 import EditBtn from './EditBtn'
 

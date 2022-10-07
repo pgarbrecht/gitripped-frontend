@@ -15,7 +15,6 @@ import {
   Navigate
 } from "react-router-dom";
 
-
 // Define baseURL
 let baseURL = process.env.REACT_APP_BACKEND_URL
 
@@ -155,8 +154,7 @@ class App extends Component {
     render() {
         
         return (
-        <>
-        {/* <Router> */}
+        <Router>
             <NavBar />
             <Routes>
                 <Route 
@@ -204,8 +202,7 @@ class App extends Component {
                       passExerciseData={this.passExerciseData}/>}
                 />
             </Routes>
-        {/* </Router> */}
-        </>
+        </Router>
         );
     }
 }

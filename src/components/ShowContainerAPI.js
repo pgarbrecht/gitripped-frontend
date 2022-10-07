@@ -58,8 +58,9 @@ class ShowContainerAPI extends Component {
                     text-4xl 
                     my-8 
                     mx-8
-                '>{this.props.exerciseName}
+                        '>{this.props.exerciseName}
                     </h1>
+
                     <div className="
                         flex
                         flex-col
@@ -71,16 +72,34 @@ class ShowContainerAPI extends Component {
                         w-4/5
                         max-w-[400px]
                     ">
-                         
-                        <h2>Description: {description}</h2>
+                        <h2 className='
+                            font-bold
+                            text-xl
+                            mb-2
+                            '>
+                            Description: 
+                        </h2>
+
+                        <p>{description}</p>
                             {this.props.categoryArray.forEach(category => {
                                     if(category.id.toString() === this.props.category.toString()){
                                         muscle = category.name
-                                    }
-                                } 
-                            )
+                                    }}
+                                ) 
                             }
-                        <p> Muscle Groups: {muscle}</p>
+
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+
+                        <h2 className='
+                            font-bold
+                            text-xl
+                            mb-2
+                            '>
+                            Muscle Groups: 
+                        </h2>
+ 
+                        <p>{muscle}</p>
                     </div>
                 </div>
             </div>
