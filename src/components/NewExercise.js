@@ -60,6 +60,8 @@ class NewExercise extends Component {
                 muscles: '',
                 notes: '',
             }) 
+            // this isn't working either
+            window.location.href=`http://localhost:3000`
         })
         .catch(err => (console.log(err)))
     }

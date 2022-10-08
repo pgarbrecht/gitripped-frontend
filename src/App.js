@@ -12,7 +12,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate
 } from "react-router-dom";
 
 // Define baseURL
@@ -106,7 +105,8 @@ class App extends Component {
         copyCustomExercises.splice(findIndex, 1)
         this.setState({customExercises: copyCustomExercises})
         console.log('got to bottom of handle delete');
-        })
+        // this one isn't working
+        }).then(window.location.href=`http://localhost:3000`)
     }
 
     //API EXERCISES HANDLERS

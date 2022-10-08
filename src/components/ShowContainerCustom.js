@@ -122,11 +122,10 @@ class ShowContainerCustom extends Component {
                         
                         <button onClick={()=> {
                             this.props.handleDeleteExercise(this.props.id);
-                            {<Navigate to="/" replace={true} />}
                             }}
                             >
                             <span className="material-symbols-outlined">
-                            delete
+                                delete
                             </span>
                         </button>
                         </div>

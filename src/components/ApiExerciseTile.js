@@ -11,20 +11,9 @@ import Legs from "../assets/Legs.png"
 import Shoulders from "../assets/Shoulders.png"
 
 class ApiExerciseTile extends Component {
-
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         muscle: ''
-    //     }
-    // }
-
-   
-    
     render(){
         let muscle = '' 
     const getMuscleIcon = (muscle) => { 
-        console.log(muscle)
         if (muscle === 'Abs') {
             return(
                 <img src={Abs} alt='abs' className='w-[44px] my-2 mr-2'/>

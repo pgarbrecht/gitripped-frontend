@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 class EditExerciseForm extends Component {
     // need to add state to this component 
@@ -14,15 +15,14 @@ class EditExerciseForm extends Component {
     }
 
     handleChange = (e) => {
-        console.log(this.state)
         // need to SAVE the updated changes 
         this.setState({
-                // account for all inputs
-                [e.target.id]: e.target.value
-                // e.target.defaultValue
-            })
-        }
-
+            // account for all inputs
+            [e.target.id]: e.target.value
+            // e.target.defaultValue
+        })
+    }
+    
     handleEditExercise = (e) => {
         e.preventDefault()
         fetch(`${process.env.REACT_APP_BACKEND_URL}/${this.props.exerciseToEdit.id}`, {
@@ -35,7 +35,7 @@ class EditExerciseForm extends Component {
                 notes: this.state.notes
             }),
             headers: {
-              'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json'
             }
         })
         .then(res => {
@@ -44,8 +44,7 @@ class EditExerciseForm extends Component {
             } throw new Error(res)
         })
         .then(resJson => {
-            // this.setState({
-            console.log(resJson)
+            window.location.href=`http://localhost:3000/showcustom?id=${this.props.exerciseToEdit.id}`;
         })
         .catch(err => (console.log(err))) 
     }
