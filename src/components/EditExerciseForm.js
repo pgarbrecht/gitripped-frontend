@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class EditExerciseForm extends Component {
-    // need to add state to this component 
+
     constructor(props) {
         super(props)
         this.state = {
@@ -14,12 +14,8 @@ class EditExerciseForm extends Component {
     }
 
     handleChange = (e) => {
-        console.log(this.state)
-        // need to SAVE the updated changes 
         this.setState({
-                // account for all inputs
                 [e.target.id]: e.target.value
-                // e.target.defaultValue
             })
         }
 
@@ -44,7 +40,6 @@ class EditExerciseForm extends Component {
             } throw new Error(res)
         })
         .then(resJson => {
-            // this.setState({
             console.log(resJson)
         })
         .catch(err => (console.log(err))) 
@@ -109,7 +104,7 @@ class EditExerciseForm extends Component {
                     onChange={this.handleChange}
                     placeholder='Muscle Group'
                     className='border rounded p-1.5 my-1'>
-                    
+            
                     {this.handleMuscleDropdown()}
 
                 </select>

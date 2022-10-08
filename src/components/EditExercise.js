@@ -7,7 +7,6 @@ class EditExercise extends Component {
         super(props)
     }
     render () {
-        // const editExerciseId = window.location.search.slice(4)
         return (
             <div className='
                 bg-[#353535]
@@ -26,7 +25,6 @@ class EditExercise extends Component {
 
                 {/* EditExerciseForm.js component */}
                 <EditExerciseForm 
-                // editExerciseId={editExerciseId} 
                     customExercises={this.props.customExercises} 
                     handleEditExercise={this.props.handleEditExercise} 
                     exerciseToEdit={this.props.exerciseToEdit}
