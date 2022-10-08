@@ -31,7 +31,7 @@ class App extends Component {
               notes: "",
             }],
               baseUrl: 'https://wger.de/api/v2/exercise/?format=json&language=2&limit=',
-              limit: "50",
+              limit: "44",
               searchUrl: "",
               exercises: [],
               categories: [],
