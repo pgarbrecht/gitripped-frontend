@@ -169,7 +169,7 @@ class App extends Component {
     }
 
     render() {
-      console.log('api exercise images:', this.state.apiExerciseImages);        
+      // console.log('api exercise images:', this.state.apiExerciseImages);        
         return (
           
         <Router>

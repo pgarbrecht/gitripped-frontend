@@ -8,6 +8,8 @@ class ShowAPIExercise extends Component {
     }
     render() {
         const apiExerciseId = parseInt(window.location.search.slice(4));
+        // console.log('this.props.apiExercises here:', this.props.apiExercises);
+        // console.log('api exercise images here:', this.props.apiExerciseImages)
     return(
         <div>
         {this.props.apiExercises.map((exercise, index) => {
@@ -21,6 +23,8 @@ class ShowAPIExercise extends Component {
                 exerciseDescription = {exercise.description}
                 category = {exercise.category}
                 categoryArray = {this.props.categories}
+                exerciseBase = {exercise.exercise_base}
+                apiExerciseImages = {this.props.apiExerciseImages}
                 // apiExercises = {this.props.apiExercises}
                 />)}
         }
