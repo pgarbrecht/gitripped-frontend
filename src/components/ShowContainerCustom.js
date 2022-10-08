@@ -119,15 +119,14 @@ class ShowContainerCustom extends Component {
                         <div className='h-4'></div>
                         <div>
                         
-                            <button onClick={()=> {
-                                this.props.handleDeleteExercise(this.props.id);
-                                {<Navigate to="/" replace={true} />}
-                                }}
-                                >
-                                <span className="material-symbols-outlined">
+                        <button onClick={()=> {
+                            this.props.handleDeleteExercise(this.props.id);
+                            }}
+                            >
+                            <span className="material-symbols-outlined">
                                 delete
-                                </span>
-                            </button>
+                            </span>
+                        </button>
                         </div>
                     </div>
 

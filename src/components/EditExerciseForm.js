@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 class EditExerciseForm extends Component {
 
@@ -31,7 +32,7 @@ class EditExerciseForm extends Component {
                 notes: this.state.notes
             }),
             headers: {
-              'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json'
             }
         })
         .then(res => {
@@ -40,7 +41,7 @@ class EditExerciseForm extends Component {
             } throw new Error(res)
         })
         .then(resJson => {
-            console.log(resJson)
+            window.location.href=`http://localhost:3000/showcustom?id=${this.props.exerciseToEdit.id}`;
         })
         .catch(err => (console.log(err))) 
     }

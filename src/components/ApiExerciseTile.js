@@ -10,8 +10,7 @@ import Chest from "../assets/Chest.png"
 import Legs from "../assets/Legs.png"
 import Shoulders from "../assets/Shoulders.png"
 
-class ApiExerciseTile extends Component {
-    
+class ApiExerciseTile extends Component {    
     render(){
         let muscle = '' 
         const getMuscleIcon = (muscle) => { 
@@ -45,7 +44,6 @@ class ApiExerciseTile extends Component {
                 )
             }
         }   
-
         return (
             <div className='flex flex-col relative'>
                 {
