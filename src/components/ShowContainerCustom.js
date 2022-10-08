@@ -21,7 +21,6 @@ class ShowContainerCustom extends Component {
     }
     render(){
         let muscle = ''
-        let baseURL = process.env.REACT_APP_BACKEND_URL
         return(
             <div className='
             bg-[#353535]

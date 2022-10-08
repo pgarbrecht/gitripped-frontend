@@ -10,54 +10,51 @@ import Chest from "../assets/Chest.png"
 import Legs from "../assets/Legs.png"
 import Shoulders from "../assets/Shoulders.png"
 
-class ApiExerciseTile extends Component {
+class ApiExerciseTile extends Component {    
     render(){
         let muscle = '' 
-    const getMuscleIcon = (muscle) => { 
-        if (muscle === 'Abs') {
-            return(
-                <img src={Abs} alt='abs' className='w-[44px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Arms') {
-            return(
-                <img src={Arms} alt='arms' className='w-[48px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Back') {
-            return(
-                <img src={Back} alt='back' className='w-[48px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Calves') {
-            return(
-                <img src={Calves} alt='calves' className='w-[48px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Chest') {
-            return(
-                <img src={Chest} alt='chest' className='w-[56px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Legs') {
-            return(
-                <img src={Legs} alt='legs' className='w-[48px] my-2 mr-2'/>
-            )
-        } else if (muscle === 'Shoulders') {
-            return(
-                <img src={Shoulders} alt='shoulders' className='w-[48px] my-2 mr-2 ml-2'/>
-            )
-        }
-    }
+        const getMuscleIcon = (muscle) => { 
+            if (muscle === 'Abs') {
+                return(
+                    <img src={Abs} alt='abs' className='w-[44px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Arms') {
+                return(
+                    <img src={Arms} alt='arms' className='w-[48px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Back') {
+                return(
+                    <img src={Back} alt='back' className='w-[48px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Calves') {
+                return(
+                    <img src={Calves} alt='calves' className='w-[48px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Chest') {
+                return(
+                    <img src={Chest} alt='chest' className='w-[56px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Legs') {
+                return(
+                    <img src={Legs} alt='legs' className='w-[48px] my-2 mr-2'/>
+                )
+            } else if (muscle === 'Shoulders') {
+                return(
+                    <img src={Shoulders} alt='shoulders' className='w-[48px] my-2 mr-2 ml-2'/>
+                )
+            }
+        }   
         return (
             <div className='flex flex-col relative'>
                 {
-                            this.props.categoryArray.forEach(
-                                category => {
-                                    if(category.id.toString() === this.props.category.toString()) {
-                                        // console.log(category.name)
-                                        // this.setState({
-                                            muscle= category.name
-                                        // })
-                                    }
-                                } 
-                            )
-                        }
+                    this.props.categoryArray.forEach(
+                        category => {
+                            if(category.id.toString() === this.props.category.toString()) {                               
+                                muscle= category.name
+                            }
+                        } 
+                    )
+                }
                 <div id="tile" className='border-black border-2 rounded-md bg-white p-2 h-44 w-44 overflow-hidden'>
 
                     <div className='flex justify-between items-start w-full'>
@@ -73,16 +70,15 @@ class ApiExerciseTile extends Component {
                     </div>
                     
                     <div className='my-4'></div>
-                    <p className='truncate text-sm' >{this.props.exerciseDescription.replace(/<[^>]+>/g, '')}</p>
-                    {/* <p><a href={`/showapi/${this.props.id}`} className='underline'>View More</a></p> */}
-                    
-                    <Link to ={`/showapi?id=${this.props.id}`} 
-                    // exercisetoshow={this.props.exercise}
-                    // exerciseid={this.props.id}
-                    >
 
-                    <p className='pr-4 underline text-[#616161] text-sm absolute bottom-2'>View More</p>
-
+                    <p className='truncate text-sm'>
+                        {this.props.exerciseDescription.replace(/<[^>]+>/g, '')}
+                    </p>
+                
+                    <Link to ={`/showapi?id=${this.props.id}`}>
+                        <p className='pr-4 underline text-[#616161] text-sm absolute bottom-2'>
+                            View More
+                        </p>
                     </Link>
                 </div>
             </div>

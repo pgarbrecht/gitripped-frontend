@@ -2,24 +2,20 @@ import React, { Component } from 'react'
 import BackBtn from './BackBtn'
 
 class NewExercise extends Component {
-    // need to add state to this component 
     constructor(props) {
         super(props)
         this.state = {
             name: '',
             description: '',
             exerciseImage: '',
-            muscles: '', // convert to drop down
+            muscles: '', 
             notes: '',
         }
     }
 
     // handleChange method
     handleChange = (e) => {
-        // capture what user is typing in the input field
-        // console.log(this.state, baseURL) // confirms that values are being set to state
         this.setState({
-            // account for all inputs
             [e.target.id]: e.target.value
         })
     }
@@ -27,7 +23,6 @@ class NewExercise extends Component {
     // handleSubmit method
     handleSubmit = (e) => {
         e.preventDefault()
-        // RedirectHome()
         fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
             method: 'POST',
             headers: {
@@ -51,9 +46,7 @@ class NewExercise extends Component {
         })
 
         .then (resJson => {
-
             this.setState({
-                // set the input fields back to empty string
                 name: '',
                 description: '',
                 exerciseImage: '',
@@ -65,14 +58,6 @@ class NewExercise extends Component {
         })
         .catch(err => (console.log(err)))
     }
-    // redirectHome() {
-    //     const navigate = useNavigate();
-      
-    //     const navigateHome = () => {
-    //       // 👇️ navigate to /
-    //       navigate('/');
-    //     };
-    // }
 
     render() {
         return (
@@ -112,7 +97,6 @@ class NewExercise extends Component {
                             rounded 
                             mx-8
                         '>
-                        {/* id = has to match key in this.state*/}
                         <input
                             id='name'
                             type='text'

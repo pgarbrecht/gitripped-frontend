@@ -11,7 +11,7 @@ class EditBtn extends Component {
             <Link to={`/edit?id=${this.props.id}`}>
                 <p>
                     <span className="material-symbols-outlined">
-                    edit_square
+                        edit_square
                     </span>
                 </p>
             </Link>

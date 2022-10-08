@@ -8,24 +8,21 @@ class ShowAPIExercise extends Component {
     }
     render() {
         const apiExerciseId = parseInt(window.location.search.slice(4));
-        // console.log('this.props.apiExercises here:', this.props.apiExercises);
-        // console.log('api exercise images here:', this.props.apiExerciseImages)
+
     return(
         <div>
         {this.props.apiExercises.map((exercise, index) => {
         if(exercise.id === apiExerciseId){
             return(
                 <ShowContainerAPI
-                // key={exercise.id}
-                key={index}
-                id={apiExerciseId}
-                exerciseName = {exercise.name}
-                exerciseDescription = {exercise.description}
-                category = {exercise.category}
-                categoryArray = {this.props.categories}
-                exerciseBase = {exercise.exercise_base}
-                apiExerciseImages = {this.props.apiExerciseImages}
-                // apiExercises = {this.props.apiExercises}
+                    key={index}
+                    id={apiExerciseId}
+                    exerciseName = {exercise.name}
+                    exerciseDescription = {exercise.description}
+                    category = {exercise.category}
+                    categoryArray = {this.props.categories}
+                    exerciseBase = {exercise.exercise_base}
+                    apiExerciseImages = {this.props.apiExerciseImages}
                 />)}
         }
         )}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 class EditExerciseForm extends Component {
-    // need to add state to this component 
+
     constructor(props) {
         super(props)
         this.state = {
@@ -15,14 +15,11 @@ class EditExerciseForm extends Component {
     }
 
     handleChange = (e) => {
-        // need to SAVE the updated changes 
         this.setState({
-            // account for all inputs
-            [e.target.id]: e.target.value
-            // e.target.defaultValue
-        })
-    }
-    
+                [e.target.id]: e.target.value
+            })
+        }
+
     handleEditExercise = (e) => {
         e.preventDefault()
         fetch(`${process.env.REACT_APP_BACKEND_URL}/${this.props.exerciseToEdit.id}`, {
@@ -108,7 +105,7 @@ class EditExerciseForm extends Component {
                     onChange={this.handleChange}
                     placeholder='Muscle Group'
                     className='border rounded p-1.5 my-1'>
-                    
+            
                     {this.handleMuscleDropdown()}
 
                 </select>

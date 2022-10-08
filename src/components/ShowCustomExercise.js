@@ -29,8 +29,6 @@ class ShowCustomExercise extends Component {
                 </div>
                 
                 {this.props.customExercises.map((exercise, index) => {
-                    // console.log(exercise.category, 'line 9 of showcustomexercise')
-                    // console.log(this.props.customExercises, 'line 10 of customExercises')
                     if(exercise._id === customExerciseId) {
                         return(
                             <ShowContainerCustom
@@ -46,11 +44,9 @@ class ShowCustomExercise extends Component {
                             exerciseToEdit={this.props.exerciseToEdit}
                             passExerciseData={this.props.passExerciseData}
                             />
-                        )
-                            
+                        )            
                     }
-                }        
-            )}
+                })}
             </div>
         )
     }
