@@ -21,7 +21,6 @@ class ShowContainerCustom extends Component {
     }
     render(){
         let muscle = ''
-        let baseURL = process.env.REACT_APP_BACKEND_URL
         return(
             <div className='
             bg-[#353535]
@@ -120,15 +119,15 @@ class ShowContainerCustom extends Component {
                         <div className='h-4'></div>
                         <div>
                         
-                        <button onClick={()=> {
-                            this.props.handleDeleteExercise(this.props.id);
-                            {<Navigate to="/" replace={true} />}
-                            }}
-                            >
-                            <span className="material-symbols-outlined">
-                            delete
-                            </span>
-                        </button>
+                            <button onClick={()=> {
+                                this.props.handleDeleteExercise(this.props.id);
+                                {<Navigate to="/" replace={true} />}
+                                }}
+                                >
+                                <span className="material-symbols-outlined">
+                                delete
+                                </span>
+                            </button>
                         </div>
                     </div>
 
