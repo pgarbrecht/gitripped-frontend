@@ -53,8 +53,7 @@ class NewExercise extends Component {
                 muscles: '',
                 notes: '',
             }) 
-            // this isn't working either
-            window.location.href=`http://localhost:3000`
+            window.location.href=`https://gitripped-app.herokuapp.com/`
         })
         .catch(err => (console.log(err)))
     }

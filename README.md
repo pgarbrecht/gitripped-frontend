@@ -1,34 +1,32 @@
-Project Description:
--Website Title: GitRipped
--Student Names: Christina, Emilio, and Phil
--This workout app allows users to search for and explore various exercises and add custom exercises.
+# GitRipped
+## Project Description
+A fullstack MERN workout app created by Christina Lu, Emilio Campos, and Phil Garbrecht that allows users to browse and add various exercises.
 
-1. Technologies Used:
-Node.js, Heroku, MongoDb, Express.js, React.js and Tailwind
+## 1. Technologies Used
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
-2. Approach Taken:
+## 2. Approach Taken
 We began with an outline of all components in the front end and all routes in the backend. Working in our front end, we created our model and state. Then, in our back end, we created our CRUD routes our controllers and our models. Next, we created our components in the front end repo and assigned each group member components to work on individually. We made sure to regroup when merging individual branches to main to ensure no conflicts. We did paired coding on parts that we were unsure of and to resolve difficult bugs.
 
-3. Unsolved Problems
+## 3. Unsolved Problems
 One issue that we didn't have time to resolve was how to automatically redirect from an added, edited or deleted exercise to the home page after the user adds, edits, or deletes a custom exercise. We added back buttons to these components to return the user back to the home page.
 
-4. User Stories
--As a user, I want to browse through different exercises and view their details on a separate page
--As a user, I want to add my own custom exercises and have the option to edit or delete them
+## 4. User Stories
+* As a user, I want to browse through different exercises and view their details on a separate page
+* As a user, I want to add my own custom exercises and have the option to edit or delete them
     -We revised this story because it made more sense to have the edit/delete functionality on the show page.
--As a user, I want to be able to view the app from my phone or on the desktop
+* As a user, I want to be able to view the app from my phone or on the desktop
 
-// stretch goal user stories
+### Stretch goal user stories
+* As a user, I want to be able to create my own account and make custom workouts that I can add reps/sets to and check them off during workout
+* As a user, I want to be able to fully customize all workouts and have the option to edit and delete ALL exercises from the API
+* As a user, I want to be able to filter all my exercises by muscle group
 
--As a user, I want to be able to create my own account and make custom workouts that I can add reps/sets to and check them off during workout
--As a user, I want to be able to fully customize all workouts and have the option to edit and delete ALL exercises from the API
--As a user, I want to be able to filter all my exercises by muscle group
+## 5. Additional Notes
+* The stretch goals are great for the future. We focused more on hitting all of our MVP goals at a high level. The update route was much more challenging to debug than anticipated.
 
-5. Notes to Self
--The stretch goals are great for the future. We focused more on hitting all of our MVP goals at a high level. The update route was much more challenging to debug than anticipated.
-
-6. 
--Link to GitHub Repository (Backend): https://github.com/pgarbrecht/gitripped-backend
--Link to GitHub Repository (Frontend): https://github.com/pgarbrecht/gitripped-frontend
--Link to Deployed Application (Backend): https://gitripped-backend.herokuapp.com/exercises
--Link to Deployed Application (Frontend): https://gitripped-app.herokuapp.com/
+## 6. Project Links
+* Link to GitHub Repository (Backend): https://github.com/pgarbrecht/gitripped-backend
+* Link to GitHub Repository (Frontend): https://github.com/pgarbrecht/gitripped-frontend
+* Link to Deployed Application (Backend): https://gitripped-backend.herokuapp.com/exercises
+* Link to Deployed Application (Frontend): https://gitripped-app.herokuapp.com/

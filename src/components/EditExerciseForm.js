@@ -41,7 +41,7 @@ class EditExerciseForm extends Component {
             } throw new Error(res)
         })
         .then(resJson => {
-            window.location.href=`http://localhost:3000/showcustom?id=${this.props.exerciseToEdit.id}`;
+            window.location.href=`https://gitripped-app.herokuapp.com/showcustom?id=${this.props.exerciseToEdit.id}`;
         })
         .catch(err => (console.log(err))) 
     }

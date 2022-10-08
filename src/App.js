@@ -105,8 +105,7 @@ class App extends Component {
         copyCustomExercises.splice(findIndex, 1)
         this.setState({customExercises: copyCustomExercises})
         console.log('got to bottom of handle delete');
-        // this one isn't working
-        }).then(window.location.href=`http://localhost:3000`)
+        }).then(window.location.href=`https://gitripped-app.herokuapp.com/`)
     }
 
     //API EXERCISES HANDLERS
