@@ -9,17 +9,16 @@ A fullstack MERN workout app created by Christina Lu, Emilio Campos, and Phil Ga
 We began with an outline of all components in the front end and all routes in the backend. Working in our front end, we created our model and state. Then, in our back end, we created our CRUD routes our controllers and our models. Next, we created our components in the front end repo and assigned each group member components to work on individually. We made sure to regroup when merging individual branches to main to ensure no conflicts. We did paired coding on parts that we were unsure of and to resolve difficult bugs.
 
 ## 3. Unsolved Problems
-One issue that we didn't have time to resolve was how to automatically redirect from an added, edited or deleted exercise to the home page after the user adds, edits, or deletes a custom exercise. We added back buttons to these components to return the user back to the home page.
+We solved for all of our MVP problems although didn't get to the stretch goals.
 
 ## 4. User Stories
 * As a user, I want to browse through different exercises and view their details on a separate page
-* As a user, I want to add my own custom exercises and have the option to edit or delete them
+* As a user, I want to add custom exercises and have the option to edit or delete them
     -We revised this story because it made more sense to have the edit/delete functionality on the show page.
 * As a user, I want to be able to view the app from my phone or on the desktop
 
 ### Stretch goal user stories
-* As a user, I want to be able to create my own account and make custom workouts that I can add reps/sets to and check them off during workout
-* As a user, I want to be able to fully customize all workouts and have the option to edit and delete ALL exercises from the API
+* As a user, I want to be able to create my own account and make a list of my workouts that I can add reps/sets to and check them off during workout.
 * As a user, I want to be able to filter all my exercises by muscle group
 
 ## 5. Additional Notes
