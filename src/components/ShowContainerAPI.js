@@ -93,7 +93,7 @@ class ShowContainerAPI extends Component {
                                     }}
                                 ) 
                             }
-                        <img src={apiExerciseImage}></img>
+                        <img className='h-[250px]' src={apiExerciseImage}></img>
 
                             {this.props.categoryArray.forEach(category => {
                                     if(category.id.toString() === this.props.category.toString()){

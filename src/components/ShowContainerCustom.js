@@ -84,7 +84,7 @@ class ShowContainerCustom extends Component {
                         <div className='h-4'></div>
 
                         <div>
-                            <img src={this.props.exerciseImage} alt={this.props.exerciseImage}/>
+                            <img className='h-[250px]' src={this.props.exerciseImage} alt={this.props.exerciseImage}/>
                         </div>
                         {/* determine which muscle category */}
                         {this.props.categoryArray.forEach(category => {
