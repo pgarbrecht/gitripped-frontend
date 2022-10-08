@@ -8,6 +8,7 @@ class ShowContainerAPI extends Component {
     
     render(){
         let muscle = ''
+        let apiExerciseImage = 'https://img1.goodfon.com/wallpaper/nbig/7/84/metal-black-and-white-gym.jpg'
         const removeTags = (str) => {
             if ((str===null) || (str===''))
                 return false;
@@ -34,7 +35,8 @@ class ShowContainerAPI extends Component {
             //We used this method to remove html tags from strings and adapted it to our own needs.
             
         let description = removeTags(this.props.exerciseDescription)
-        
+        // console.log('here is exercise base:', this.props.exerciseBase);
+        // console.log(this.props.apiExerciseImages)
         return (
             <div className='
             bg-[#353535]
@@ -81,6 +83,20 @@ class ShowContainerAPI extends Component {
                         </h2>
 
                         <p>{description}</p>
+                        {/* spacer =============================================== */}
+                        <div className='h-4'></div>
+                        
+                        {this.props.apiExerciseImages.forEach(image => {
+                            console.log('image exercise base', image.exercise_base)
+                            console.log('this.props.exerciseBase', this.props.exerciseBase)
+                                    if(image.exercise_base === this.props.exerciseBase){
+                                        console.log('GREAT SUCCESS!!!')
+                                        apiExerciseImage = image.image;
+                                    }}
+                                ) 
+                            }
+                        <img src={apiExerciseImage}></img>
+
                             {this.props.categoryArray.forEach(category => {
                                     if(category.id.toString() === this.props.category.toString()){
                                         muscle = category.name
